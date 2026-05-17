@@ -1,10 +1,12 @@
 import { animalResults } from '../data/animalResults'
+import { normalizeAnimalResult, validateAnimalResultsDataset } from './animalResultSafety'
 import type { EmotionVector, MatchResult } from '../types/animal'
 
 const w = { softness: 1, sharpness: 1.1, brightness: 0.9, calmness: 1, mystique: 1, playfulness: 0.9 }
 
 export function matchAnimal(v: EmotionVector): MatchResult {
-  const ranked = animalResults
+  const safeDataset = validateAnimalResultsDataset(animalResults)
+  const ranked = safeDataset
     .map((card) => {
       const projected = {
         softness: v.softness,
@@ -26,5 +28,7 @@ export function matchAnimal(v: EmotionVector): MatchResult {
     })
     .sort((a, b) => b.score - a.score)
 
-  return { mainResult: ranked[0], candidates: ranked.slice(0, 3), score: ranked[0].score, vector: v }
+  const fallback = normalizeAnimalResult(undefined, "fallback-animal")
+  const mainResult = ranked[0] ?? { ...fallback, score: 0 }
+  return { mainResult, candidates: ranked.slice(0, 3), score: mainResult.score ?? 0, vector: v }
 }

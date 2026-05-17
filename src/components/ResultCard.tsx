@@ -1,7 +1,10 @@
 import type { AnimalResult } from '../data/animalResults';
 import AnimalVisual from './AnimalVisual';
 
-export default function ResultCard({ card, score }: { card: AnimalResult; score: number }) {
+export default function ResultCard({ card, score }: { card?: AnimalResult | null; score: number }) {
+  if (!card) {
+    return <div id="result-card" className="premium-result-card"><p className="result-label">분석 중...</p></div>;
+  }
   return (
     <div id="result-card" className="premium-result-card">
       <p className="result-label">당신의 동물상 카드는</p>
