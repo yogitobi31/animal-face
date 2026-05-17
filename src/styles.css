@@ -137,3 +137,14 @@ body {
 
 .ad-slot-compact { @apply h-12; }
 .ad-slot-regular { @apply h-20; }
+
+.tone-sun .premium-art-area { background: radial-gradient(circle at 24% 24%, rgba(255,255,255,0.9), transparent 50%), linear-gradient(145deg, #fff1d3 0%, #f9dfb2 55%, #efd3a1 100%); }
+.tone-moon .premium-art-area { background: radial-gradient(circle at 72% 18%, rgba(255,255,255,0.8), transparent 48%), linear-gradient(145deg, #e9e8f5 0%, #d8d8ea 58%, #c8c9df 100%); }
+.tone-forest .premium-art-area { background: radial-gradient(circle at 18% 20%, rgba(255,255,255,0.86), transparent 52%), linear-gradient(148deg, #e5efdf 0%, #d2e1ca 58%, #c1d1bc 100%); }
+.tone-pearl .premium-art-area { background: radial-gradient(circle at 25% 22%, rgba(255,255,255,0.94), transparent 45%), linear-gradient(148deg, #f6f2ef 0%, #eee6de 58%, #e4dad0 100%); }
+.tone-night .premium-art-area { background: radial-gradient(circle at 78% 18%, rgba(228,221,255,0.35), transparent 52%), linear-gradient(150deg, #302c3f 0%, #413955 58%, #4c4462 100%); }
+
+.motif-sun .line-main { stroke-width: 1.65; }
+.motif-sun .wave-left,.motif-sun .wave-right { stroke-dasharray: 1 5; opacity: 0.75; }
+.motif-moon .line-sub { stroke-dasharray: 5 4; opacity: 0.8; }
+.motif-mist .line-main,.motif-mist .line-sub { opacity: 0.65; stroke-linecap: round; }
