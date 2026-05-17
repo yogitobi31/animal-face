@@ -1,9 +1,7 @@
-import { getIllustrationPath } from '../data/animalIllustrations';
 import type { AnimalResult } from '../data/animalResults';
+import AnimalVisual from './AnimalVisual';
 
 export default function ResultCard({ card, score }: { card: AnimalResult; score: number }) {
-  const illustrationPath = getIllustrationPath(card.illustrationKey);
-
   return (
     <div id="result-card" className="premium-result-card">
       <p className="result-label">당신의 동물상 카드는</p>
@@ -15,20 +13,7 @@ export default function ResultCard({ card, score }: { card: AnimalResult; score:
       </div>
 
       <div className="premium-art-area">
-        {illustrationPath ? (
-          <img
-            src={illustrationPath}
-            alt={`${card.name} 일러스트`}
-            className="result-illustration"
-            loading="eager"
-            decoding="async"
-          />
-        ) : (
-          <div className="result-illustration-empty" role="img" aria-label="일러스트 준비 중">
-            <p className="empty-title">Illustration Coming Soon</p>
-            <p className="empty-caption">{card.illustrationKey}</p>
-          </div>
-        )}
+        <AnimalVisual result={card} />
       </div>
 
       <p className="result-catchphrase">{card.tagline}</p>
