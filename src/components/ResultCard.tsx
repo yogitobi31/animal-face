@@ -1,7 +1,7 @@
 import { getIllustrationPath } from '../data/animalIllustrations';
-import type { AnimalCard } from '../types/animal';
+import type { AnimalResult } from '../data/animalResults';
 
-export default function ResultCard({ card, score }: { card: AnimalCard; score: number }) {
+export default function ResultCard({ card, score }: { card: AnimalResult; score: number }) {
   const illustrationPath = getIllustrationPath(card.illustrationKey);
 
   return (
