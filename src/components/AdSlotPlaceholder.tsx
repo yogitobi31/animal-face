@@ -1,1 +1,9 @@
-export default function AdSlotPlaceholder({ compact=false }:{compact?:boolean}){return <div className={`w-full rounded-2xl border border-stone-300/70 bg-white/60 text-stone-500 flex items-center justify-center ${compact?'h-14':'h-24'}`}>Advertisement</div>}
+export default function AdSlotPlaceholder({ compact = false }: { compact?: boolean }) {
+  return (
+    <div
+      className={`ad-slot-placeholder ${compact ? 'ad-slot-compact' : 'ad-slot-regular'}`}
+    >
+      Advertisement
+    </div>
+  );
+}
