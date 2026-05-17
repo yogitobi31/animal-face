@@ -115,3 +115,56 @@ body {
 .motif-sun .wave-left,.motif-sun .wave-right { stroke-dasharray: 1 5; opacity: 0.75; }
 .motif-moon .line-sub { stroke-dasharray: 5 4; opacity: 0.8; }
 .motif-mist .line-main,.motif-mist .line-sub { opacity: 0.65; stroke-linecap: round; }
+
+.animal-visual {
+  @apply relative h-full w-full overflow-hidden rounded-xl border border-white/35;
+  background: radial-gradient(circle at 20% 15%, rgba(255,255,255,0.7), transparent 45%),
+    linear-gradient(140deg, color-mix(in srgb, var(--av-c1) 90%, #fff 10%) 0%, var(--av-c2) 58%, var(--av-c3) 100%);
+}
+
+.animal-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(17,24,39,0.2));
+  pointer-events: none;
+}
+
+.animal-visual-glow {
+  @apply absolute -right-8 -top-12 h-40 w-40 rounded-full;
+  background: radial-gradient(circle, rgba(255,255,255,0.95), rgba(255,255,255,0));
+}
+
+.animal-visual-svg {
+  @apply relative z-[1] h-full w-full;
+}
+
+.animal-visual-curve-main,
+.animal-visual-curve-sub {
+  fill: none;
+  stroke: rgba(255,255,255,0.55);
+  stroke-linecap: round;
+}
+
+.animal-visual-curve-main { stroke-width: 1.35; opacity: 0.72; }
+.animal-visual-curve-sub { stroke-width: 1; stroke-dasharray: 4.5 4; opacity: 0.48; }
+
+.animal-visual-caption {
+  @apply absolute bottom-3 left-3 z-[2] rounded-lg border border-white/20 bg-black/10 px-2.5 py-1.5 text-[10px] text-white/85 backdrop-blur-sm;
+}
+
+.animal-visual-caption p + p { @apply mt-1 text-white/70; }
+
+.animal-visual-v1 .animal-visual-curve-sub { stroke-dasharray: 1 5; }
+.animal-visual-v2 .animal-visual-curve-main { opacity: 0.55; }
+.animal-visual-v3 .animal-visual-glow { @apply -left-8 right-auto; }
+
+@media (max-width: 640px) {
+  .premium-art-area {
+    @apply h-48 p-2.5;
+  }
+
+  .animal-visual-caption {
+    @apply text-[9px] px-2 py-1;
+  }
+}
