@@ -1,0 +1,46 @@
+Use case: stylized-concept
+Asset type: premium mobile app personality result card (landscape-safe)
+Primary request: Create a premium illustration for a Korean animal-face personality result card.
+
+Subject:
+A sophisticated, symbolic, visually refined animal illustration representing the result "{RESULT_NAME}".
+The core animal identity is "{BASE_ANIMAL}".
+The mood and personality keywords are: {MOOD_TAGS}.
+
+Scene/backdrop:
+Minimal, elegant, atmospheric backdrop with subtle symbolic motifs that support the personality mood.
+No clutter. No explicit scenery that competes with the subject.
+
+Style/medium:
+Premium semi-realistic editorial illustration, refined painterly finish, subtle fantasy atmosphere.
+Calm, graceful, poetic, emotionally resonant, high-end, commercially polished.
+
+Composition/framing:
+Landscape composition suitable for a wide card.
+Single main animal subject only.
+Bust or upper-body centered composition (or gracefully composed portrait-oriented figure adapted for a landscape-safe crop).
+Keep the subject clearly readable in the center-safe area with luxurious negative space.
+
+Lighting/mood:
+Soft cinematic lighting, mystical but restrained, dreamlike yet grounded.
+Nuanced value contrast, elegant highlights, no harsh randomness.
+
+Color palette:
+Use a refined muted-luxury harmony inspired by: {PALETTE}.
+Avoid oversaturation and loud contrast.
+
+Materials/textures:
+Delicate fur/eye/silhouette rendering (when appropriate), elegant line flow, polished shading, premium texture detail.
+
+Constraints:
+No text, no logos, no watermark, no UI elements, no typography.
+No collage, no multi-panel layout.
+No silly expression, no exaggerated cartoon proportions, no mascot style, no cheap sticker look.
+No low-quality anime shortcut style.
+No awkward AI artifacts, no deformed anatomy, no cluttered background.
+
+Avoid:
+childish, meme-like, kitschy, loud social-bait aesthetic, cheap or casual visual tone.
+
+Output intent:
+Final production-quality illustration for a premium app card, highly shareable, elegant, tasteful, visually complete.
