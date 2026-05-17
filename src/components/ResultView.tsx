@@ -61,7 +61,9 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
         </button>
       </div>
 
-      <AdSlotPlaceholder compact />
+      <div className="pt-3 border-t border-stone-200/70 mt-2">
+        <AdSlotPlaceholder compact />
+      </div>
     </section>
   );
 }

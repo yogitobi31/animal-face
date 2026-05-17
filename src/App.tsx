@@ -26,5 +26,5 @@ export default function App(){
       const vector=toEmotionVector(features); const matched=matchAnimal(vector); setResult(matched); saveCached({hash,features,result:matched}); setStage('result'); if(multipleFaces) setError('여러 얼굴이 감지되어 가장 큰 얼굴 하나만 분석했어요.')
     }catch(e){setError((e as Error).message||'분석 중 오류가 발생했습니다.');setStage('upload')}
   }
-  return <main className='mx-auto min-h-screen max-w-md px-4 py-8 overflow-x-hidden space-y-6'>{stage==='landing'&&<Landing onStart={()=>setStage('upload')}/>} {stage==='upload'&&<UploadPanel onFile={run} error={error}/>} {stage==='analyzing'&&<AnalyzingView/>} {stage==='result'&&result&&<><ResultView result={result} onRetry={()=>{setResult(null);setStage('upload')}}/>{error&&<p className='text-xs text-amber-700'>{error}</p>}</>}</main>
+  return <main className='mx-auto min-h-screen max-w-5xl px-4 py-8 overflow-x-hidden space-y-6 md:px-6 lg:px-8'>{stage==='landing'&&<Landing onStart={()=>setStage('upload')}/>} {stage==='upload'&&<UploadPanel onFile={run} error={error}/>} {stage==='analyzing'&&<AnalyzingView/>} {stage==='result'&&result&&<><ResultView result={result} onRetry={()=>{setResult(null);setStage('upload')}}/>{error&&<p className='text-xs text-amber-700'>{error}</p>}</>}</main>
 }
