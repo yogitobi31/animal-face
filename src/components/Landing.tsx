@@ -19,7 +19,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
         </article>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-5 landing-content">
         <h1 className="text-3xl font-semibold tracking-tight">Animal Face Archive</h1>
         <p className="text-stone-700 leading-relaxed">
           매번 바뀌는 랜덤 테스트가 아닙니다. 얼굴의 형태와 인상 요소를 기준으로 안정적으로 매칭하며,

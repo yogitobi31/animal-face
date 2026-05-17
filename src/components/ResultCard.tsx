@@ -1,26 +1,49 @@
 import type { AnimalCard } from '../types/animal';
 
+const visualToneByFamily: Record<string, string> = {
+  '북극여우': 'tone-arcticfox',
+  '고양이': 'tone-cat',
+  '수달': 'tone-otter',
+  '여우고양이': 'tone-foxcat',
+};
+
+const motifByFamily: Record<string, string> = {
+  '북극여우': 'motif-arcticfox',
+  '고양이': 'motif-cat',
+  '수달': 'motif-otter',
+  '여우고양이': 'motif-foxcat',
+};
+
 export default function ResultCard({ card, score }: { card: AnimalCard; score: number }) {
+  const toneClass = visualToneByFamily[card.animalFamily] ?? 'tone-default';
+  const motifClass = motifByFamily[card.animalFamily] ?? 'motif-default';
+
   return (
-    <div id="result-card" className="premium-result-card">
-      <p className="text-sm text-stone-500">당신의 동물상 카드는</p>
-      <h2 className="mt-1 text-2xl font-semibold tracking-tight">{card.name}</h2>
+    <div id="result-card" className={`premium-result-card ${toneClass} ${motifClass}`}>
+      <p className="result-label">당신의 동물상 카드는</p>
+      <h2 className="result-name">{card.name}</h2>
 
       <div className="result-meta-row">
-        <span>카테고리 {card.animalFamily}</span>
-        <span>매칭률 {score}%</span>
+        <span className="result-category">카테고리 {card.animalFamily}</span>
+        <span className="result-score-badge">매칭률 {score}%</span>
       </div>
 
       <div className="premium-art-area" aria-hidden>
-        <div className="silhouette-orb" />
-        <div className="face-line face-line-1" />
-        <div className="face-line face-line-2" />
-        <div className="face-line face-line-3" />
+        <svg className="animal-symbol" viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path className="symbol-line line-main" d="M76 168C108 126 130 72 182 72C232 72 253 125 286 168" />
+          <path className="symbol-line line-sub" d="M122 160C138 134 151 111 182 111C212 111 226 133 241 160" />
+          <path className="symbol-line line-accent" d="M151 160C160 147 167 137 182 137C196 137 204 147 213 160" />
+          <path className="symbol-ear ear-left" d="M137 76L159 40L169 81" />
+          <path className="symbol-ear ear-right" d="M227 76L203 40L194 81" />
+          <path className="symbol-wave wave-left" d="M81 146C106 138 117 121 131 103" />
+          <path className="symbol-wave wave-right" d="M279 146C254 138 243 121 229 103" />
+          <ellipse className="symbol-core" cx="182" cy="120" rx="38" ry="44" />
+        </svg>
       </div>
 
-      <p className="mt-4 text-sm font-medium text-stone-700">{card.catchphrase}</p>
-      <p className="mt-2 text-sm leading-relaxed text-stone-600">{card.description}</p>
-      <p className="mt-4 text-xs tracking-[0.12em] text-stone-500">Animal Face Archive</p>
+      <p className="result-catchphrase">{card.catchphrase}</p>
+      <p className="result-description">{card.description}</p>
+      <p className="result-brand">Animal Face Archive</p>
     </div>
   );
 }
