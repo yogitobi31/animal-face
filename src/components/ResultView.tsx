@@ -15,7 +15,9 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   const handleSaveImage = async () => {
-    if (!cardContainerRef.current) return;
+    if (!cardContainerRef.current) {
+      return;
+    }
 
     try {
       await saveCardImage(cardContainerRef.current);
@@ -25,8 +27,12 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   };
 
   const handleShare = async () => {
+    if (!navigator.share) {
+      return;
+    }
+
     try {
-      await navigator.share?.({
+      await navigator.share({
         title: 'Animal Face Archive',
         text: result.mainResult.name,
         url: location.href,
