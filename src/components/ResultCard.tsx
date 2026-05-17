@@ -1,22 +1,25 @@
 import type { AnimalCard } from '../types/animal';
 
-const visualToneByFamily: Record<string, string> = {
-  '북극여우': 'tone-arcticfox',
-  '고양이': 'tone-cat',
-  '수달': 'tone-otter',
-  '여우고양이': 'tone-foxcat',
+const visualToneByIllustration: Record<string, string> = {
+  'ivory-cat': 'tone-cat',
+  'sun-dog': 'tone-sun',
+  'moon-fox': 'tone-moon',
+  'slate-wolf': 'tone-forest',
+  'pearl-swan': 'tone-pearl',
+  'night-panther-fox': 'tone-night',
 };
 
-const motifByFamily: Record<string, string> = {
-  '북극여우': 'motif-arcticfox',
-  '고양이': 'motif-cat',
-  '수달': 'motif-otter',
-  '여우고양이': 'motif-foxcat',
+const motifByIllustration: Record<string, string> = {
+  'ivory-cat': 'motif-cat',
+  'sun-dog': 'motif-sun',
+  'moon-cat-fox': 'motif-moon',
+  'river-otter': 'motif-otter',
+  'mist-owl': 'motif-mist',
 };
 
 export default function ResultCard({ card, score }: { card: AnimalCard; score: number }) {
-  const toneClass = visualToneByFamily[card.animalFamily] ?? 'tone-default';
-  const motifClass = motifByFamily[card.animalFamily] ?? 'motif-default';
+  const toneClass = visualToneByIllustration[card.illustrationKey] ?? 'tone-default';
+  const motifClass = motifByIllustration[card.illustrationKey] ?? 'motif-default';
 
   return (
     <div id="result-card" className={`premium-result-card ${toneClass} ${motifClass}`}>

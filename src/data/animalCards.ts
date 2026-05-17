@@ -1,28 +1,58 @@
 import type { AnimalCard } from '../types/animal'
-const p=(roundness:number,sharpness:number,softness:number,elegance:number,playfulness:number,calmness:number,brightness:number,mystery:number,warmth:number)=>({roundness,sharpness,softness,elegance,playfulness,calmness,brightness,mystery,warmth})
-export const animalCards: AnimalCard[] = [
-{id:'rabbit-deer',name:'꽃잠 사슴토끼',animalFamily:'사슴토끼',blend:['사슴','토끼'],rarity:'rare',imageUrl:'/cards/rabbit-deer.png',profile:p(82,34,79,70,60,62,74,38,80),catchphrase:'맑고 부드러운 새벽의 결',description:'사슴의 정갈함과 토끼의 포근함이 균형 있게 어우러진 카드입니다.',keywords:['맑음','청초함','포근함','은은함'],colorMood:'rose-cream'},
-{id:'fox-cat-moon',name:'달그림자 여우고양이',animalFamily:'여우고양이',blend:['여우','고양이'],rarity:'rare',imageUrl:'/cards/cat-fox.png',profile:p(42,81,48,73,52,71,46,84,49),catchphrase:'고요하고 날렵한 밤의 선',description:'섬세한 눈매와 차분한 분위기가 신비감을 만들어냅니다.',keywords:['신비','절제','도시적','세련'],colorMood:'silver-indigo'},
-{id:'otter-dog',name:'몽글 수달강아지',animalFamily:'수달강아지',blend:['수달','강아지'],rarity:'common',imageUrl:'/cards/otter-dog.png',profile:p(71,38,85,45,74,48,79,27,88),catchphrase:'웃음이 번지는 따뜻한 결',description:'밝고 친근한 인상이 빠르게 호감을 주는 카드입니다.',keywords:['친근함','밝음','말랑함','활기'],colorMood:'apricot-mint'},
-{id:'quokka-hamster',name:'우유빛 쿼카햄스터',animalFamily:'쿼카햄스터',blend:['쿼카','햄스터'],rarity:'hidden',imageUrl:'/cards/quokka-hamster.png',profile:p(88,22,90,40,76,50,86,19,91),catchphrase:'순하고 환한 미소의 결',description:'둥글고 포근한 분위기가 안정감을 주는 희귀 조합입니다.',keywords:['우유빛','다정함','순둥함','사랑스러움'],colorMood:'ivory-vanilla'},
-{id:'raccoon-ferret-star',name:'별빛 라쿤페럿',animalFamily:'라쿤페럿',blend:['라쿤','페럿'],rarity:'rare',imageUrl:'/cards/raccoon-ferret.png',profile:p(52,67,54,58,81,46,64,63,55),catchphrase:'재치가 반짝이는 밤하늘',description:'장난기와 영리함이 균형 있게 섞인 카드입니다.',keywords:['재치','민첩함','호기심','반짝임'],colorMood:'navy-lilac'},
-{id:'arcticfox-rabbit-dawn',name:'새벽눈 북극여우토끼',animalFamily:'북극여우토끼',blend:['북극여우','토끼'],rarity:'hidden',imageUrl:'/cards/arcticfox-rabbit.png',profile:p(66,62,72,79,44,82,61,78,64),catchphrase:'차갑고 고운 새벽의 잔광',description:'우아함과 신비감이 겹겹이 쌓인 조합입니다.',keywords:['새벽','눈빛','절제','우아'],colorMood:'frost-blue'},
-{id:'penguin-chick-wave',name:'잔파도 펭귄병아리',animalFamily:'펭귄병아리',blend:['펭귄','병아리'],rarity:'common',imageUrl:'/cards/penguin-chick.png',profile:p(78,30,76,57,63,73,69,36,75),catchphrase:'차분함 속 귀여운 리듬',description:'정돈된 인상에 사랑스러운 포인트가 더해진 카드입니다.',keywords:['균형','리듬','담백함','귀여움'],colorMood:'sky-cream'},
-{id:'panther-cat',name:'조용한 흑표범고양이',animalFamily:'흑표범고양이',blend:['흑표범','고양이'],rarity:'hidden',imageUrl:'/cards/panther-cat.png',profile:p(34,90,31,72,41,86,29,91,33),catchphrase:'낮게 번지는 검은 광택',description:'강한 선과 고요한 시선이 깊은 존재감을 만듭니다.',keywords:['강렬함','정적','긴장감','카리스마'],colorMood:'black-violet'},
-{id:'alpaca-cloud',name:'구름 알파카',animalFamily:'알파카',blend:['알파카'],rarity:'common',imageUrl:'/cards/alpaca-cloud.png',profile:p(80,24,87,48,62,58,73,25,86),catchphrase:'폭신한 오후의 구름 결',description:'부드러운 윤곽과 따뜻한 분위기가 돋보입니다.',keywords:['폭신함','안정감','나른함'],colorMood:'cloud-cream'},
-{id:'peach-rabbit',name:'복숭아 토끼',animalFamily:'토끼',blend:['토끼'],rarity:'common',imageUrl:'/cards/peach-rabbit.png',profile:p(84,28,82,55,70,52,81,24,84),catchphrase:'상냥함이 번지는 복숭아빛',description:'밝고 귀여운 인상이 자연스럽게 퍼지는 카드입니다.',keywords:['복숭아','상냥함','밝은기운'],colorMood:'peach-pink'},
-{id:'forest-deer',name:'초록숲 사슴',animalFamily:'사슴',blend:['사슴'],rarity:'common',imageUrl:'/cards/forest-deer.png',profile:p(58,52,63,78,42,77,55,58,61),catchphrase:'고요하게 선명한 숲의 결',description:'정제된 분위기와 균형 잡힌 선이 매력적인 카드입니다.',keywords:['정갈함','숲','청량'],colorMood:'moss-green'},
-{id:'playful-ferret',name:'장난꾸러기 페럿',animalFamily:'페럿',blend:['페럿'],rarity:'common',imageUrl:'/cards/playful-ferret.png',profile:p(49,63,52,46,88,36,74,40,57),catchphrase:'톡 튀는 호기심의 온도',description:'표정의 리듬이 경쾌하고 생동감 있는 카드입니다.',keywords:['장난기','호기심','민첩함'],colorMood:'sunset-orange'},
-{id:'sunny-dog',name:'햇살 강아지',animalFamily:'강아지',blend:['강아지'],rarity:'common',imageUrl:'/cards/sunny-dog.png',profile:p(73,35,81,44,75,46,88,20,89),catchphrase:'환한 미소가 머무는 낮',description:'따뜻하고 밝은 인상이 강하게 전달됩니다.',keywords:['햇살','친화력','미소'],colorMood:'sunny-yellow'},
-{id:'chic-cat',name:'도도한 고양이',animalFamily:'고양이',blend:['고양이'],rarity:'common',imageUrl:'/cards/chic-cat.png',profile:p(40,79,42,76,48,74,44,72,46),catchphrase:'절제된 선의 세련미',description:'날렵한 윤곽과 차분한 존재감이 특징입니다.',keywords:['세련','도도함','정돈'],colorMood:'graphite'},
-{id:'silver-fox',name:'은빛 여우',animalFamily:'여우',blend:['여우'],rarity:'rare',imageUrl:'/cards/silver-fox.png',profile:p(46,84,39,74,55,72,50,80,44),catchphrase:'차갑게 빛나는 은빛 결',description:'샤프한 인상과 고요한 깊이가 공존합니다.',keywords:['은빛','기민함','신비'],colorMood:'silver-blue'},
-{id:'cozy-otter',name:'포근한 수달',animalFamily:'수달',blend:['수달'],rarity:'common',imageUrl:'/cards/cozy-otter.png',profile:p(75,32,88,43,66,54,77,22,90),catchphrase:'따스하게 감싸는 물결',description:'부드럽고 편안한 느낌이 오래 남는 카드입니다.',keywords:['포근함','안온함','물결'],colorMood:'warm-brown'},
-{id:'swan-deer',name:'꿈꾸는 백조사슴',animalFamily:'백조사슴',blend:['백조','사슴'],rarity:'rare',imageUrl:'/cards/swan-deer.png',profile:p(61,47,70,88,39,84,60,68,66),catchphrase:'길고 맑은 여운의 선',description:'우아하고 차분한 분위기가 긴 잔상을 남깁니다.',keywords:['우아함','여운','청명'],colorMood:'pearl'},
-{id:'hedgehog-pebble',name:'조약돌 고슴도치',animalFamily:'고슴도치',blend:['고슴도치'],rarity:'common',imageUrl:'/cards/hedgehog-pebble.png',profile:p(67,58,49,51,57,69,47,62,52),catchphrase:'작지만 단단한 질감',description:'동글함과 선명함이 함께 있는 담백한 카드입니다.',keywords:['단단함','소박함','담백'],colorMood:'stone-gray'},
-{id:'chick-soft',name:'말랑 병아리',animalFamily:'병아리',blend:['병아리'],rarity:'common',imageUrl:'/cards/soft-chick.png',profile:p(91,18,92,34,68,41,90,12,93),catchphrase:'작고 환한 온기의 알갱이',description:'최상급의 부드러움과 밝은 기운이 특징입니다.',keywords:['말랑함','온기','유순함'],colorMood:'butter-cream'},
-{id:'snow-arcticfox',name:'눈꽃 북극여우',animalFamily:'북극여우',blend:['북극여우'],rarity:'rare',imageUrl:'/cards/snow-arcticfox.png',profile:p(54,71,59,82,43,80,58,83,57),catchphrase:'설원의 고요를 닮은 선',description:'차분함과 신비감이 높은 비중으로 나타나는 카드입니다.',keywords:['설원','고요','섬세함'],colorMood:'ice-white'},
-{id:'city-raccoon',name:'도시의 라쿤',animalFamily:'라쿤',blend:['라쿤'],rarity:'common',imageUrl:'/cards/city-raccoon.png',profile:p(50,65,47,60,78,55,62,66,49),catchphrase:'리듬감 있는 도시의 숨',description:'재치와 균형이 공존하는 도시형 무드 카드입니다.',keywords:['도시감성','리듬','위트'],colorMood:'city-navy'},
-{id:'small-squirrel',name:'작은 다람쥐',animalFamily:'다람쥐',blend:['다람쥐'],rarity:'common',imageUrl:'/cards/small-squirrel.png',profile:p(79,29,74,47,83,43,76,26,72),catchphrase:'발랄한 순간의 반짝임',description:'귀엽고 민첩한 기운이 가볍게 흐르는 카드입니다.',keywords:['발랄함','민첩함','귀여움'],colorMood:'nut-brown'},
-{id:'calm-wolf',name:'차분한 늑대',animalFamily:'늑대',blend:['늑대'],rarity:'rare',imageUrl:'/cards/calm-wolf.png',profile:p(37,85,36,80,33,90,32,88,38),catchphrase:'정적 속에서 빛나는 결의',description:'날카로움과 차분함이 함께 높은, 묵직한 카드입니다.',keywords:['결의','침착함','깊이'],colorMood:'slate-blue'},
-{id:'round-panda',name:'둥근 판다',animalFamily:'판다',blend:['판다'],rarity:'common',imageUrl:'/cards/round-panda.png',profile:p(93,14,89,38,55,60,70,18,87),catchphrase:'부드러운 흑백의 포옹',description:'둥근 윤곽과 온화한 무드가 안정감을 주는 카드입니다.',keywords:['둥근인상','온화함','편안함'],colorMood:'ink-cream'}
-]
+
+const p = (roundness:number,sharpness:number,softness:number,elegance:number,playfulness:number,calmness:number,brightness:number,mystery:number,warmth:number)=>({roundness,sharpness,softness,elegance,playfulness,calmness,brightness,mystery,warmth})
+
+const baseAnimals = ['고양이','강아지','여우','늑대','토끼','사슴','곰','수달','라쿤','다람쥐','올빼미','백조','표범','돌고래','호랑이','판다'] as const
+const personalityLayers = ['도도한','햇살 같은','고요한','포근한','신비로운','차분한','맑은','장난기 있는'] as const
+const emotionalLayers = ['눈꽃','달그림자','새벽빛','은안개','별결','호수빛','밤안개','유리숲'] as const
+
+const illustrationKeys = [
+  'ivory-cat','sun-dog','moon-fox','slate-wolf','peach-rabbit','forest-deer','honey-bear','river-otter',
+  'city-raccoon','maple-squirrel','mist-owl','pearl-swan','midnight-panther','wave-dolphin','ember-tiger','ink-panda',
+  'snow-fox-rabbit','moon-cat-fox','dawn-deer-rabbit','mist-wolf-cat','lake-otter-deer','night-panther-fox','star-raccoon-owl','glass-swan-dolphin',
+  'aurora-tiger-wolf','milk-panda-bear','sunset-dog-otter','frost-owl-swan','amber-squirrel-rabbit','noir-panther-cat','mint-dolphin-fox','rose-deer-cat'
+] as const
+
+const colorMoods = ['rose-cream','silver-indigo','apricot-mint','frost-blue','navy-lilac','black-violet','pearl','moss-green','sunny-yellow','city-navy'] as const
+
+const toId = (value:string)=>value.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9가-힣-]/g,'').toLowerCase()
+const rarityByIndex = (index:number): AnimalCard['rarity'] => index % 11 === 0 ? 'hidden' : index % 4 === 0 ? 'rare' : 'common'
+
+const blendPair = (index:number) => {
+  const a = baseAnimals[index % baseAnimals.length]
+  const b = baseAnimals[(index * 5 + 3) % baseAnimals.length]
+  return a === b ? [a] : [a,b]
+}
+
+export const animalCards: AnimalCard[] = Array.from({length: 96}, (_, index) => {
+  const personality = personalityLayers[index % personalityLayers.length]
+  const emotional = emotionalLayers[index % emotionalLayers.length]
+  const blend = blendPair(index)
+  const animalFamily = blend.length === 1 ? blend[0] : `${blend[0]}${blend[1]}`
+  const name = index % 3 === 0 ? `${emotional} ${animalFamily}` : `${personality} ${animalFamily}`
+
+  return {
+    id: toId(`${name}-${index}`),
+    name,
+    animalFamily,
+    blend,
+    rarity: rarityByIndex(index),
+    imageUrl: `/cards/${illustrationKeys[index % illustrationKeys.length]}.png`,
+    illustrationKey: illustrationKeys[index % illustrationKeys.length],
+    profile: p(
+      30 + ((index * 17) % 66),
+      20 + ((index * 19) % 72),
+      28 + ((index * 23) % 65),
+      35 + ((index * 13) % 60),
+      25 + ((index * 29) % 68),
+      30 + ((index * 31) % 63),
+      30 + ((index * 11) % 64),
+      18 + ((index * 37) % 76),
+      28 + ((index * 41) % 65)
+    ),
+    catchphrase: `${emotional} 결이 스며든 ${personality} 무드`,
+    description: `${animalFamily}의 인상을 바탕으로 색감·장식·질감을 차별화해 아카이브형 결과 경험을 강화한 카드입니다.`,
+    keywords: [personality, emotional, blend[0], blend[1] ?? '단일상'],
+    colorMood: colorMoods[index % colorMoods.length],
+  }
+})
