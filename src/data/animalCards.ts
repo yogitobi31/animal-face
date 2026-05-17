@@ -7,13 +7,13 @@ const personalityLayers = ['도도한','햇살 같은','고요한','포근한','
 const emotionalLayers = ['눈꽃','달그림자','새벽빛','은안개','별결','호수빛','밤안개','유리숲'] as const
 
 const illustrationKeys = [
-  'ivory-cat','sun-dog','moon-fox','slate-wolf','peach-rabbit','forest-deer','honey-bear','river-otter',
+  'proud-cat','sunny-dog','snow-arctic-fox','moon-fox-cat','peach-rabbit','forest-deer','honey-bear','river-otter',
   'city-raccoon','maple-squirrel','mist-owl','pearl-swan','midnight-panther','wave-dolphin','ember-tiger','ink-panda',
   'snow-fox-rabbit','moon-cat-fox','dawn-deer-rabbit','mist-wolf-cat','lake-otter-deer','night-panther-fox','star-raccoon-owl','glass-swan-dolphin',
   'aurora-tiger-wolf','milk-panda-bear','sunset-dog-otter','frost-owl-swan','amber-squirrel-rabbit','noir-panther-cat','mint-dolphin-fox','rose-deer-cat'
 ] as const
 
-const colorMoods = ['rose-cream','silver-indigo','apricot-mint','frost-blue','navy-lilac','black-violet','pearl','moss-green','sunny-yellow','city-navy'] as const
+const palettes = ['rose-cream','silver-indigo','apricot-mint','frost-blue','navy-lilac','black-violet','pearl','moss-green','sunny-yellow','city-navy'] as const
 
 const toId = (value:string)=>value.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9가-힣-]/g,'').toLowerCase()
 const rarityByIndex = (index:number): AnimalCard['rarity'] => index % 11 === 0 ? 'hidden' : index % 4 === 0 ? 'rare' : 'common'
@@ -28,18 +28,21 @@ export const animalCards: AnimalCard[] = Array.from({length: 96}, (_, index) => 
   const personality = personalityLayers[index % personalityLayers.length]
   const emotional = emotionalLayers[index % emotionalLayers.length]
   const blend = blendPair(index)
-  const animalFamily = blend.length === 1 ? blend[0] : `${blend[0]}${blend[1]}`
-  const name = index % 3 === 0 ? `${emotional} ${animalFamily}` : `${personality} ${animalFamily}`
+  const baseAnimal = blend[0]
+  const category = blend.length === 1 ? baseAnimal : `${blend[0]}·${blend[1]} 하이브리드`
+  const name = index % 3 === 0 ? `${emotional} ${blend.join('')}` : `${personality} ${blend.join('')}`
 
   return {
     id: toId(`${name}-${index}`),
     name,
-    animalFamily,
-    blend,
-    rarity: rarityByIndex(index),
-    imageUrl: `/cards/${illustrationKeys[index % illustrationKeys.length]}.png`,
+    baseAnimal,
+    category,
+    moodTags: [personality, emotional, blend[0], blend[1] ?? '단일상'],
+    tagline: `${emotional} 결이 스며든 ${personality} 무드`,
+    description: `${blend.join('·')}의 인상을 바탕으로 색감·장식·질감을 차별화해 아카이브형 결과 경험을 강화한 카드입니다.`,
+    palette: palettes[index % palettes.length],
     illustrationKey: illustrationKeys[index % illustrationKeys.length],
-    profile: p(
+    featureWeights: p(
       30 + ((index * 17) % 66),
       20 + ((index * 19) % 72),
       28 + ((index * 23) % 65),
@@ -50,9 +53,6 @@ export const animalCards: AnimalCard[] = Array.from({length: 96}, (_, index) => 
       18 + ((index * 37) % 76),
       28 + ((index * 41) % 65)
     ),
-    catchphrase: `${emotional} 결이 스며든 ${personality} 무드`,
-    description: `${animalFamily}의 인상을 바탕으로 색감·장식·질감을 차별화해 아카이브형 결과 경험을 강화한 카드입니다.`,
-    keywords: [personality, emotional, blend[0], blend[1] ?? '단일상'],
-    colorMood: colorMoods[index % colorMoods.length],
+    rarity: rarityByIndex(index),
   }
 })

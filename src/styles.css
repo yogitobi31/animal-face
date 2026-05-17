@@ -55,60 +55,27 @@ body {
 }
 
 .premium-art-area {
-  @apply relative mt-4 h-56 overflow-hidden rounded-2xl border border-stone-200/70;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
-    linear-gradient(150deg, #f6efe3 0%, #f2e8d8 40%, #eee2cf 100%);
+  @apply relative mt-4 flex h-56 items-center justify-center overflow-hidden rounded-2xl border border-stone-200/70 bg-stone-50 p-3;
+  background: linear-gradient(150deg, #f7f1e8 0%, #efe6d8 60%, #e7dccb 100%);
 }
 
-.animal-symbol { @apply absolute inset-0 h-full w-full; }
-.symbol-line,.symbol-ear,.symbol-wave,.symbol-core { fill: none; stroke: rgba(86, 70, 54, 0.52); stroke-width: 1.35; }
-.symbol-core { fill: rgba(119, 93, 63, 0.08); stroke: rgba(106, 82, 59, 0.24); }
+.result-illustration {
+  @apply h-full w-full rounded-xl;
+  object-fit: contain;
+  max-height: 100%;
+  filter: drop-shadow(0 14px 24px rgba(47, 35, 22, 0.18));
+}
+
+.result-illustration-empty {
+  @apply flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-stone-300/80 bg-white/55 text-center;
+}
+
+.empty-title { @apply text-xs uppercase tracking-[0.1em] text-stone-500; }
+.empty-caption { @apply mt-2 text-sm text-stone-400; }
+
 .result-catchphrase { @apply mt-4 text-base font-medium tracking-[-0.01em] text-stone-700; }
 .result-description { @apply mt-2 text-[15px] leading-[1.65] text-stone-600; }
 .result-brand { @apply mt-5 border-t border-stone-200/70 pt-4 text-[11px] tracking-[0.16em] text-stone-500; }
-
-.tone-arcticfox .premium-art-area {
-  background: radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.95), transparent 48%), linear-gradient(145deg, #f8f4ea 0%, #ede5d6 58%, #e6dccd 100%);
-}
-.tone-cat .premium-art-area {
-  background: radial-gradient(circle at 70% 18%, rgba(255, 255, 255, 0.82), transparent 45%), linear-gradient(150deg, #f6ecdf 0%, #ecdfcc 62%, #e5d7c4 100%);
-}
-.tone-otter .premium-art-area {
-  background: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 55%), linear-gradient(148deg, #f7ecde 0%, #efe3d2 60%, #e9dbc7 100%);
-}
-.tone-foxcat .premium-art-area {
-  background: radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.9), transparent 48%), linear-gradient(148deg, #f6ebdf 0%, #ecdec9 58%, #e4d4c0 100%);
-}
-
-.motif-arcticfox .line-main { stroke-width: 1.25; }
-.motif-arcticfox .ear-left,.motif-arcticfox .ear-right { stroke-width: 1.6; }
-.motif-arcticfox .wave-left,.motif-arcticfox .wave-right { stroke-dasharray: 3 5; opacity: 0.8; }
-
-.motif-cat .line-main { stroke-width: 1.7; }
-.motif-cat .line-sub { stroke-width: 1.1; }
-.motif-cat .ear-left,.motif-cat .ear-right { transform: translateY(2px); stroke-width: 1.8; }
-.motif-cat .wave-left,.motif-cat .wave-right { opacity: 0.35; }
-
-.motif-otter .line-main,.motif-otter .line-sub { stroke-linecap: round; }
-.motif-otter .ear-left,.motif-otter .ear-right { opacity: 0.35; }
-.motif-otter .wave-left,.motif-otter .wave-right { stroke-width: 1.6; opacity: 0.9; }
-
-.motif-foxcat .line-main { stroke-width: 1.5; }
-.motif-foxcat .ear-left,.motif-foxcat .ear-right { stroke-width: 1.75; }
-.motif-foxcat .wave-left,.motif-foxcat .wave-right { stroke-dasharray: 2 4; opacity: 0.7; }
-
-.silhouette-orb {
-  @apply absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full;
-  background: radial-gradient(circle at 40% 30%, rgba(120, 95, 65, 0.22), rgba(120, 95, 65, 0.08) 60%, rgba(120, 95, 65, 0.03));
-}
-
-.face-line {
-  @apply absolute rounded-full border border-stone-500/30;
-}
-
-.face-line-1 { width: 180px; height: 180px; left: 50%; top: 52%; transform: translate(-50%, -50%); }
-.face-line-2 { width: 120px; height: 120px; left: 50%; top: 52%; transform: translate(-50%, -50%); }
-.face-line-3 { width: 62px; height: 90px; left: 50%; top: 54%; transform: translate(-50%, -50%); }
 
 .candidate-item {
   @apply flex min-h-[52px] items-center justify-between rounded-xl border border-stone-200/80 bg-white/80 px-4 py-3;
