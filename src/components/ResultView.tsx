@@ -7,15 +7,21 @@ import CandidateList from './CandidateList';
 import ResultCard from './ResultCard';
 
 type ResultViewProps = {
-  result: MatchResult;
+  result: MatchResult | null;
   onRetry: () => void;
 };
 
 export default function ResultView({ result, onRetry }: ResultViewProps) {
+  if (!result?.mainResult) {
+    return <section className="result-page"><p className="text-sm text-stone-600">분석 중...</p></section>;
+  }
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   const handleSaveImage = async () => {
-    if (!cardContainerRef.current) return;
+    if (!cardContainerRef.current) {
+      console.error('[save-card-image] cardContainerRef is null');
+      return;
+    }
     try {
       await saveCardImage(cardContainerRef.current);
     } catch {

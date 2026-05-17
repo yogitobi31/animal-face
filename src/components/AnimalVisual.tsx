@@ -1,8 +1,9 @@
 import type { CSSProperties } from 'react';
 import type { AnimalResult } from '../data/animalResults';
+import { normalizeAnimalResult } from '../lib/animalResultSafety';
 
 type AnimalVisualProps = {
-  result: Pick<AnimalResult, 'name' | 'palette' | 'baseAnimal' | 'moodTags' | 'illustrationKey'>;
+  result?: Partial<Pick<AnimalResult, 'id' | 'name' | 'palette' | 'baseAnimal' | 'moodTags' | 'illustrationKey'>> | null;
 };
 
 const silhouetteByAnimal: Record<string, string> = {
@@ -17,52 +18,40 @@ const silhouetteByAnimal: Record<string, string> = {
   라쿤: 'M16 84 C22 63 37 52 56 51 C61 42 68 36 76 36 C82 44 85 53 87 61 C99 64 108 74 112 87 C96 101 79 108 60 108 C43 107 27 98 16 84 Z',
   다람쥐: 'M16 86 C20 69 32 56 48 52 C57 43 67 40 79 44 C90 52 96 64 99 77 C106 79 111 84 114 92 C100 104 82 110 61 110 C43 109 27 101 16 86 Z',
 };
-
 const defaultSilhouette = 'M18 82 C24 62 40 50 60 49 C80 49 98 60 112 80 C103 97 85 106 64 106 C44 106 27 99 18 82 Z';
-
-const hashString = (value: string) =>
-  value.split('').reduce((acc, ch, index) => (acc + ch.charCodeAt(0) * (index + 17)) % 100000, 0);
+const hashString = (value: string) => value.split('').reduce((acc, ch, index) => (acc + ch.charCodeAt(0) * (index + 17)) % 100000, 0);
 
 export default function AnimalVisual({ result }: AnimalVisualProps) {
-  const [c1 = '#f4ece1', c2 = '#d8c2ad', c3 = '#6f5d50'] = result.palette;
-  const hash = hashString(result.illustrationKey);
+  const safeResult = normalizeAnimalResult(result, 'animal-visual');
+  const [c1, c2, c3] = safeResult.palette;
+  const hash = hashString(safeResult.illustrationKey);
   const variant = hash % 4;
   const rotation = (hash % 18) - 9;
   const intensity = 0.18 + (hash % 25) / 100;
-  const patternId = `pattern-${result.illustrationKey}`;
-  const silhouettePath = silhouetteByAnimal[result.baseAnimal] ?? defaultSilhouette;
-  const mood = result.moodTags.join(' · ');
+  const patternId = `pattern-${safeResult.illustrationKey}-${safeResult.id}`;
+  const silhouettePath = silhouetteByAnimal[safeResult.baseAnimal] ?? defaultSilhouette;
+  const mood = safeResult.moodTags.length ? safeResult.moodTags.join(' · ') : '분위기 분석 중';
 
-  return (
-    <div className={`animal-visual animal-visual-v${variant}`} style={{ '--av-c1': c1, '--av-c2': c2, '--av-c3': c3 } as CSSProperties}>
-      <div className="animal-visual-glow" style={{ opacity: intensity }} />
-
-      <svg className="animal-visual-svg" viewBox="0 0 130 120" role="img" aria-label={`${result.name} 분위기 일러스트`}>
-        <defs>
-          <pattern id={patternId} width="16" height="16" patternUnits="userSpaceOnUse" patternTransform={`rotate(${rotation})`}>
-            <path d="M0 8 H16" stroke={c2} strokeWidth="0.75" opacity="0.24" />
-            <path d="M8 0 V16" stroke={c1} strokeWidth="0.55" opacity="0.16" />
-          </pattern>
-          <linearGradient id={`${patternId}-line`} x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor={c1} />
-            <stop offset="60%" stopColor={c2} />
-            <stop offset="100%" stopColor={c3} />
-          </linearGradient>
-        </defs>
-
-        <rect x="0" y="0" width="130" height="120" fill={`url(#${patternId})`} opacity="0.55" />
-
-        <path d={silhouettePath} fill={c3} opacity="0.13" />
-        <path d={silhouettePath} fill="none" stroke={`url(#${patternId}-line)`} strokeWidth="1.7" opacity="0.72" />
-
-        <path d="M20 90 C36 80 50 75 64 76 C80 76 95 82 112 95" className="animal-visual-curve-main" />
-        <path d="M30 34 C46 24 69 22 97 32" className="animal-visual-curve-sub" />
-      </svg>
-
-      <div className="animal-visual-caption">
-        <p>{result.baseAnimal}</p>
-        <p>{mood}</p>
-      </div>
-    </div>
-  );
+  return <div className={`animal-visual animal-visual-v${variant}`} style={{ '--av-c1': c1, '--av-c2': c2, '--av-c3': c3 } as CSSProperties}>
+    <div className="animal-visual-glow" style={{ opacity: intensity }} />
+    <svg className="animal-visual-svg" viewBox="0 0 130 120" role="img" aria-label={`${safeResult.name} 분위기 일러스트`}>
+      <defs>
+        <pattern id={patternId} width="16" height="16" patternUnits="userSpaceOnUse" patternTransform={`rotate(${rotation})`}>
+          <path d="M0 8 H16" stroke={c2} strokeWidth="0.75" opacity="0.24" />
+          <path d="M8 0 V16" stroke={c1} strokeWidth="0.55" opacity="0.16" />
+        </pattern>
+        <linearGradient id={`${patternId}-line`} x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor={c1} />
+          <stop offset="60%" stopColor={c2} />
+          <stop offset="100%" stopColor={c3} />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="130" height="120" fill={`url(#${patternId})`} opacity="0.55" />
+      <path d={silhouettePath} fill={c3} opacity="0.13" />
+      <path d={silhouettePath} fill="none" stroke={`url(#${patternId}-line)`} strokeWidth="1.7" opacity="0.72" />
+      <path d="M20 90 C36 80 50 75 64 76 C80 76 95 82 112 95" className="animal-visual-curve-main" />
+      <path d="M30 34 C46 24 69 22 97 32" className="animal-visual-curve-sub" />
+    </svg>
+    <div className="animal-visual-caption"><p>{safeResult.baseAnimal}</p><p>{mood}</p></div>
+  </div>;
 }
