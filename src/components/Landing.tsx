@@ -20,14 +20,23 @@ export default function Landing({ onStart }: { onStart: () => void }) {
       </div>
 
       <div className="space-y-5 landing-content">
-        <h1 className="text-3xl font-semibold tracking-tight">Animal Face Archive</h1>
+        <p className="text-xs tracking-[0.2em] uppercase text-stone-500">Animal Face Archive</p>
+        <h1 className="text-3xl font-semibold tracking-tight">닮은 건 얼굴일까, 분위기일까.</h1>
         <p className="text-stone-700 leading-relaxed">
-          매번 바뀌는 랜덤 테스트가 아닙니다. 얼굴의 형태와 인상 요소를 기준으로 안정적으로 매칭하며,
-          사진은 외부 AI API로 전송되지 않습니다. 당신의 얼굴과 가장 가까운 동물상 카드를 찾아드립니다.
+          당신과 가장 가까운 동물상을 카드처럼 담아드립니다.
         </p>
         <button onClick={onStart} className="primary-cta">
           사진으로 시작하기
         </button>
+        <details className="text-xs text-stone-500 leading-relaxed">
+          <summary className="cursor-pointer select-none text-stone-500 hover:text-stone-700 transition">
+            신뢰성 · 개인정보 안내 보기
+          </summary>
+          <p className="mt-2">
+            매번 바뀌는 랜덤 테스트가 아니며 얼굴 형태와 인상 요소를 기준으로 안정적으로 매칭합니다. 사진은
+            외부 AI API로 전송되지 않습니다.
+          </p>
+        </details>
       </div>
     </section>
   );
