@@ -15,10 +15,7 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   const handleSaveImage = async () => {
-    if (!cardContainerRef.current) {
-      return;
-    }
-
+    if (!cardContainerRef.current) return;
     try {
       await saveCardImage(cardContainerRef.current);
     } catch {
@@ -27,10 +24,7 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   };
 
   const handleShare = async () => {
-    if (!navigator.share) {
-      return;
-    }
-
+    if (!navigator.share) return;
     try {
       await navigator.share({
         title: 'Animal Face Archive',
@@ -43,38 +37,31 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   };
 
   return (
-    <section className="space-y-4">
+    <section className="result-page space-y-5">
       <div ref={cardContainerRef}>
         <ResultCard card={result.mainResult} score={result.score} />
       </div>
 
       <div>
-        <h3 className="mb-2 font-medium">비슷한 후보 3개</h3>
+        <h3 className="mb-2 text-sm font-medium text-stone-700">비슷한 후보 3개</h3>
         <CandidateList result={result} />
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
-        <button onClick={onRetry} className="rounded-xl bg-white p-3">
+      <div className="action-grid">
+        <button onClick={onRetry} className="secondary-btn">
           다시 분석하기
         </button>
 
-        <button
-          onClick={handleSaveImage}
-          className="rounded-xl bg-stone-900 p-3 text-white"
-        >
+        <button onClick={handleSaveImage} className="primary-btn">
           이미지 저장하기
         </button>
 
-        <button
-          onClick={handleShare}
-          className="col-span-2 rounded-xl bg-white p-3"
-        >
+        <button onClick={handleShare} className="secondary-btn full-width">
           공유하기
         </button>
       </div>
 
       <AdSlotPlaceholder compact />
-      <AdSlotPlaceholder />
     </section>
   );
 }
