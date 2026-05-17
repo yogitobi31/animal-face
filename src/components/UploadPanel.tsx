@@ -1,0 +1,2 @@
+import PrivacyNote from './PrivacyNote'
+export default function UploadPanel({onFile,error}:{onFile:(f:File)=>void;error?:string}){return <section className='space-y-4'><label className='block rounded-2xl border border-dashed border-stone-400 bg-white/70 p-6 text-center cursor-pointer'><input className='hidden' type='file' accept='image/*' onChange={(e)=>{const f=e.target.files?.[0];if(f)onFile(f)}}/>사진 업로드</label><PrivacyNote />{error&&<p className='text-sm text-red-600'>{error}</p>}</section>}

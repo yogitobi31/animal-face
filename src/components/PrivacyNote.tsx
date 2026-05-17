@@ -1,0 +1,1 @@
+export default function PrivacyNote(){return <ul className='text-sm text-stone-600 space-y-1'><li>사진은 브라우저에서 분석됩니다.</li><li>외부 AI API로 사진을 보내지 않습니다.</li><li>결과 생성에 이미지 생성 AI를 사용하지 않습니다.</li><li>같은 사진은 같은 기준으로 분석됩니다.</li></ul>}
