@@ -1,5 +1,6 @@
-import type { CSSProperties } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { AnimalResult } from '../data/animalResults';
+import { getIllustrationPath } from '../data/animalIllustrations';
 import { normalizeAnimalResult } from '../lib/animalResultSafety';
 
 type AnimalVisualProps = {
@@ -23,6 +24,14 @@ const hashString = (value: string) => value.split('').reduce((acc, ch, index) =>
 
 export default function AnimalVisual({ result }: AnimalVisualProps) {
   const safeResult = normalizeAnimalResult(result, 'animal-visual');
+  const [imageFailed, setImageFailed] = useState(false);
+  const illustrationPath = useMemo(() => getIllustrationPath(safeResult.illustrationKey), [safeResult.illustrationKey]);
+  const shouldRenderImage = Boolean(illustrationPath) && !imageFailed;
+
+  useEffect(() => {
+    setImageFailed(false);
+  }, [illustrationPath, safeResult.id]);
+
   const [c1, c2, c3] = safeResult.palette;
   const hash = hashString(safeResult.illustrationKey);
   const variant = hash % 4;
@@ -33,8 +42,18 @@ export default function AnimalVisual({ result }: AnimalVisualProps) {
   const mood = safeResult.moodTags.length ? safeResult.moodTags.join(' · ') : '분위기 분석 중';
 
   return <div className={`animal-visual animal-visual-v${variant}`} style={{ '--av-c1': c1, '--av-c2': c2, '--av-c3': c3 } as CSSProperties}>
-    <div className="animal-visual-glow" style={{ opacity: intensity }} />
-    <svg className="animal-visual-svg" viewBox="0 0 130 120" role="img" aria-label={`${safeResult.name} 분위기 일러스트`}>
+    {shouldRenderImage ? (
+      <img
+        className="result-illustration"
+        src={illustrationPath ?? undefined}
+        alt={`${safeResult.name} 일러스트`}
+        loading="eager"
+        onError={() => setImageFailed(true)}
+      />
+    ) : (
+      <>
+        <div className="animal-visual-glow" style={{ opacity: intensity }} />
+        <svg className="animal-visual-svg" viewBox="0 0 130 120" role="img" aria-label={`${safeResult.name} 분위기 일러스트`}>
       <defs>
         <pattern id={patternId} width="16" height="16" patternUnits="userSpaceOnUse" patternTransform={`rotate(${rotation})`}>
           <path d="M0 8 H16" stroke={c2} strokeWidth="0.75" opacity="0.24" />
@@ -51,7 +70,9 @@ export default function AnimalVisual({ result }: AnimalVisualProps) {
       <path d={silhouettePath} fill="none" stroke={`url(#${patternId}-line)`} strokeWidth="1.7" opacity="0.72" />
       <path d="M20 90 C36 80 50 75 64 76 C80 76 95 82 112 95" className="animal-visual-curve-main" />
       <path d="M30 34 C46 24 69 22 97 32" className="animal-visual-curve-sub" />
-    </svg>
-    <div className="animal-visual-caption"><p>{safeResult.baseAnimal}</p><p>{mood}</p></div>
+        </svg>
+        <div className="animal-visual-caption"><p>{safeResult.baseAnimal}</p><p>{mood}</p></div>
+      </>
+    )}
   </div>;
 }
