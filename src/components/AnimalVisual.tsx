@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import type { AnimalResult } from '../data/animalResults';
-import { getIllustrationPath } from '../data/animalIllustrations';
 import { normalizeAnimalResult } from '../lib/animalResultSafety';
 
 type AnimalVisualProps = {
@@ -26,12 +25,20 @@ const hashString = (value: string) => value.split('').reduce((acc, ch, index) =>
 
 export default function AnimalVisual({ result }: AnimalVisualProps) {
   const safeResult = normalizeAnimalResult(result, 'animal-visual');
-  const illustrationPath = useMemo(() => getIllustrationPath(safeResult.illustrationKey), [safeResult.illustrationKey]);
+  const illustrationPath = useMemo(() => {
+    const sanitizedKey = safeResult.illustrationKey.trim().toLowerCase();
+    return sanitizedKey ? `/animals/${sanitizedKey}.png` : null;
+  }, [safeResult.illustrationKey]);
   const [imageLoadStatus, setImageLoadStatus] = useState<ImageLoadStatus>('idle');
   const isPreviewMode = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('preview') === '1';
 
   useEffect(() => {
     setImageLoadStatus('idle');
+    console.warn('[animal-illustration] attempt image load', {
+      name: safeResult.name,
+      illustrationKey: safeResult.illustrationKey,
+      imageUrl: illustrationPath,
+    });
   }, [illustrationPath, safeResult.id, safeResult.illustrationKey]);
 
   const shouldRenderImage = Boolean(illustrationPath) && imageLoadStatus !== 'failed';
@@ -63,7 +70,15 @@ export default function AnimalVisual({ result }: AnimalVisualProps) {
         src={illustrationPath ?? undefined}
         alt={`${safeResult.name} 일러스트`}
         loading="eager"
-        onLoad={() => setImageLoadStatus('loaded')}
+        onLoad={() => {
+          setImageLoadStatus('loaded');
+          console.warn('[animal-illustration] loaded image', {
+            name: safeResult.name,
+            illustrationKey: safeResult.illustrationKey,
+            imageUrl: illustrationPath,
+            loadSuccess: true,
+          });
+        }}
         onError={handleImageError}
       />
     ) : (
