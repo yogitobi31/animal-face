@@ -151,7 +151,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '차갑게 빛나는 선명한 매력',
     description: '날렵한 인상과 지적인 분위기가 돋보입니다. 가볍지 않고 세련된 긴장감이 있어요.',
     palette: ['#F4F1EB', '#C7C7C2', '#5E6367'],
-    illustrationKey: 'silver-wolf',
+    illustrationKey: 'silver-fox',
     featureWeights: { softness: 0.32, sharpness: 0.88, brightness: 0.42, calmness: 0.62, mystique: 0.82, playfulness: 0.28 },
   },
   {
@@ -912,4 +912,68 @@ export const animalResults: AnimalResult[] = [
     featureWeights: { softness: 0.42, sharpness: 0.82, brightness: 0.46, calmness: 0.54, mystique: 0.58, playfulness: 0.46 },
   },
 
-];
+
+  {
+    id: 'angel-dog',
+    name: '천사 강아지',
+    baseAnimal: '강아지',
+    category: 'rare',
+    moodTags: ['다정함', '포근함', '순수함'],
+    tagline: '맑은 미소로 마음을 감싸는 얼굴',
+    description: '부드럽고 환한 분위기가 먼저 전해집니다. 곁에 있으면 긴장이 풀리는 편안한 매력을 가졌어요.',
+    palette: ['#FFF8F0', '#F2E3D7', '#C9AFA0'],
+    illustrationKey: 'angel-dog',
+    featureWeights: { softness: 0.9, sharpness: 0.12, brightness: 0.88, calmness: 0.74, mystique: 0.22, playfulness: 0.52 },
+  },
+  {
+    id: 'crystal-stag', name: '크리스털 사슴', baseAnimal: '사슴', category: 'rare', moodTags: ['맑음', '고요함', '신비감'], tagline: '투명한 기운이 도는 차분한 인상', description: '깨끗하고 정제된 분위기가 강합니다. 조용하지만 또렷한 존재감이 오래 남아요.', palette: ['#F5FBFF', '#BCD8E6', '#5F7F96'], illustrationKey: 'crystal-stag', featureWeights: { softness: 0.52, sharpness: 0.64, brightness: 0.78, calmness: 0.86, mystique: 0.82, playfulness: 0.16 },
+  },
+  {
+    id: 'moon-wolf', name: '달의 늑대', baseAnimal: '늑대', category: 'mood', moodTags: ['고요함', '강인함', '신비감'], tagline: '달빛 아래 더 선명해지는 눈빛', description: '차분한 야성미와 절제된 분위기가 함께 보입니다. 말없이도 중심을 지키는 타입이에요.', palette: ['#EEF1F8', '#A9B3CC', '#414B67'], illustrationKey: 'moon-wolf', featureWeights: { softness: 0.34, sharpness: 0.82, brightness: 0.46, calmness: 0.88, mystique: 0.9, playfulness: 0.14 },
+  },
+  {
+    id: 'dream-rabbit', name: '꿈결 토끼', baseAnimal: '토끼', category: 'cute', moodTags: ['몽환적', '부드러움', '사랑스러움'], tagline: '꿈속처럼 포근하고 가벼운 인상', description: '둥글고 맑은 분위기에 몽환적인 무드가 더해집니다. 조용히 시선을 끄는 귀여움이 있어요.', palette: ['#FFF7FC', '#E6CDE8', '#9D7FA9'], illustrationKey: 'dream-rabbit', featureWeights: { softness: 0.92, sharpness: 0.18, brightness: 0.82, calmness: 0.72, mystique: 0.58, playfulness: 0.54 },
+  },
+  {
+    id: 'luminous-swan', name: '빛의 백조', baseAnimal: '백조', category: 'rare', moodTags: ['우아함', '고요함', '광채'], tagline: '잔잔한 빛으로 품격을 남기는 얼굴', description: '차분하고 유려한 선이 돋보입니다. 과하지 않은 화사함으로 고급스러운 분위기를 만들어요.', palette: ['#FAFCFF', '#D8E5F3', '#7D93A7'], illustrationKey: 'luminous-swan', featureWeights: { softness: 0.66, sharpness: 0.48, brightness: 0.84, calmness: 0.9, mystique: 0.62, playfulness: 0.2 },
+  },
+  {
+    id: 'golden-otter', name: '황금 수달', baseAnimal: '수달', category: 'mood', moodTags: ['활기', '따뜻함', '친근함'], tagline: '햇살처럼 반짝이는 기분 좋은 에너지', description: '밝고 경쾌한 분위기가 강합니다. 유쾌함과 다정함이 함께 느껴지는 인상이에요.', palette: ['#FFF5DE', '#E7BC63', '#9B6A35'], illustrationKey: 'golden-otter', featureWeights: { softness: 0.74, sharpness: 0.34, brightness: 0.9, calmness: 0.42, mystique: 0.2, playfulness: 0.82 },
+  },
+  {
+    id: 'elegant-poodle', name: '우아한 푸들', baseAnimal: '강아지', category: 'classic', moodTags: ['우아함', '세련됨', '밝음'], tagline: '가볍고 단정한 품격이 느껴지는 얼굴', description: '부드러운 인상에 정돈된 세련미가 더해집니다. 밝지만 가볍지 않은 매력을 보여줘요.', palette: ['#FFF8F2', '#E9D3C3', '#A9826A'], illustrationKey: 'elegant-poodle', featureWeights: { softness: 0.82, sharpness: 0.36, brightness: 0.76, calmness: 0.62, mystique: 0.34, playfulness: 0.56 },
+  },
+  {
+    id: 'fluffy-pomeranian', name: '복슬 포메라니안', baseAnimal: '강아지', category: 'cute', moodTags: ['복슬복슬', '활발함', '사랑스러움'], tagline: '작은 솜뭉치 같은 환한 에너지', description: '풍성하고 둥근 분위기가 귀엽게 다가옵니다. 주변까지 기분 좋게 만드는 활발함이 있어요.', palette: ['#FFF6EB', '#F0C99C', '#B67B49'], illustrationKey: 'fluffy-pomeranian', featureWeights: { softness: 0.94, sharpness: 0.14, brightness: 0.86, calmness: 0.34, mystique: 0.08, playfulness: 0.92 },
+  },
+  {
+    id: 'velvet-panda', name: '벨벳 판다', baseAnimal: '판다', category: 'mood', moodTags: ['포근함', '차분함', '고급스러움'], tagline: '부드럽고 깊은 결의 매력을 가진 얼굴', description: '둥글고 안정적인 인상에 은은한 세련미가 느껴집니다. 편안하면서도 기억에 남는 타입이에요.', palette: ['#F5F4F2', '#B8B3AD', '#3F3B3A'], illustrationKey: 'velvet-panda', featureWeights: { softness: 0.88, sharpness: 0.24, brightness: 0.44, calmness: 0.82, mystique: 0.46, playfulness: 0.36 },
+  },
+  {
+    id: 'dawn-owl', name: '새벽 올빼미', baseAnimal: '올빼미', category: 'mood', moodTags: ['집중력', '고요함', '지적임'], tagline: '새벽 공기처럼 맑고 또렷한 시선', description: '차분하고 집중된 분위기가 강합니다. 말수는 적어도 깊이 있는 인상을 남겨요.', palette: ['#F3F6FA', '#BFCBDA', '#566173'], illustrationKey: 'dawn-owl', featureWeights: { softness: 0.48, sharpness: 0.7, brightness: 0.58, calmness: 0.88, mystique: 0.72, playfulness: 0.12 },
+  },
+  {
+    id: 'aurora-peacock', name: '오로라 공작', baseAnimal: '공작', category: 'rare', moodTags: ['화려함', '신비감', '우아함'], tagline: '빛의 결이 흐르는 화려한 존재감', description: '선명하고 화사한 분위기 속에 고급스러운 무드가 있습니다. 시선을 자연스럽게 끌어당겨요.', palette: ['#EAFBFF', '#7CCBD1', '#3E5E8B'], illustrationKey: 'aurora-peacock', featureWeights: { softness: 0.56, sharpness: 0.62, brightness: 0.8, calmness: 0.54, mystique: 0.9, playfulness: 0.38 },
+  },
+  {
+    id: 'midnight-panther', name: '미드나잇 팬서', baseAnimal: '팬서', category: 'rare', moodTags: ['시크함', '강렬함', '신비감'], tagline: '어둠 속에서 더 또렷해지는 카리스마', description: '강한 인상과 절제된 움직임이 함께 느껴집니다. 쉽게 흔들리지 않는 단단한 무드를 보여줘요.', palette: ['#EEF0F2', '#7A828D', '#23262D'], illustrationKey: 'midnight-panther', featureWeights: { softness: 0.3, sharpness: 0.9, brightness: 0.22, calmness: 0.76, mystique: 0.94, playfulness: 0.1 },
+  },
+  {
+    id: 'cloud-koala', name: '구름 코알라', baseAnimal: '코알라', category: 'cute', moodTags: ['포근함', '느긋함', '순함'], tagline: '구름처럼 말랑하고 편안한 얼굴', description: '둥글고 따뜻한 분위기가 편안함을 줍니다. 조용히 곁을 지켜주는 안정감이 느껴져요.', palette: ['#F7F8FA', '#CDD4DC', '#7B8593'], illustrationKey: 'cloud-koala', featureWeights: { softness: 0.9, sharpness: 0.16, brightness: 0.68, calmness: 0.9, mystique: 0.2, playfulness: 0.4 },
+  },
+  {
+    id: 'amber-squirrel', name: '앰버 다람쥐', baseAnimal: '다람쥐', category: 'mood', moodTags: ['발랄함', '영리함', '따뜻함'], tagline: '호박빛처럼 생기 있고 반짝이는 인상', description: '작고 빠른 에너지와 밝은 분위기가 잘 어울립니다. 경쾌하면서도 친근한 매력이 있어요.', palette: ['#FFF2E3', '#DFA367', '#8A5738'], illustrationKey: 'amber-squirrel', featureWeights: { softness: 0.62, sharpness: 0.58, brightness: 0.78, calmness: 0.36, mystique: 0.28, playfulness: 0.84 },
+  },
+  {
+    id: 'pearl-seal', name: '진주 물범', baseAnimal: '물범', category: 'rare', moodTags: ['맑음', '부드러움', '차분함'], tagline: '은은한 광택처럼 고요하게 빛나는 얼굴', description: '차갑지 않은 깨끗함과 부드러운 분위기가 함께 있습니다. 잔잔하지만 오래 기억되는 인상이에요.', palette: ['#F6FAFC', '#C8D8E2', '#6E8492'], illustrationKey: 'pearl-seal', featureWeights: { softness: 0.78, sharpness: 0.3, brightness: 0.74, calmness: 0.88, mystique: 0.52, playfulness: 0.24 },
+  },
+  {
+    id: 'coral-flamingo', name: '코랄 플라밍고', baseAnimal: '플라밍고', category: 'mood', moodTags: ['화사함', '우아함', '생기'], tagline: '산호빛 무드로 분위기를 환하게 밝히는 얼굴', description: '밝고 유려한 실루엣이 돋보입니다. 가볍고 세련된 에너지로 주변을 화사하게 만들어요.', palette: ['#FFF2EF', '#F39FA2', '#B86573'], illustrationKey: 'coral-flamingo', featureWeights: { softness: 0.68, sharpness: 0.46, brightness: 0.88, calmness: 0.5, mystique: 0.42, playfulness: 0.66 },
+  },
+  {
+    id: 'frost-penguin', name: '서리 펭귄', baseAnimal: '펭귄', category: 'mood', moodTags: ['맑음', '정갈함', '차분함'], tagline: '서리 낀 새벽처럼 또렷한 귀여움', description: '깔끔하고 단정한 분위기에 은근한 귀여움이 있습니다. 차분하지만 친근한 인상으로 남아요.', palette: ['#F4F9FC', '#BFD4E3', '#4F6476'], illustrationKey: 'frost-penguin', featureWeights: { softness: 0.7, sharpness: 0.44, brightness: 0.76, calmness: 0.78, mystique: 0.4, playfulness: 0.48 },
+  },
+  {
+    id: 'sapphire-horse', name: '사파이어 말', baseAnimal: '말', category: 'rare', moodTags: ['기품', '강인함', '청량함'], tagline: '푸른 보석처럼 깊고 단단한 인상', description: '날렵한 선과 안정된 무드가 균형을 이룹니다. 우아함과 강인함이 함께 느껴지는 타입이에요.', palette: ['#EDF4FF', '#8FAFD9', '#36527A'], illustrationKey: 'sapphire-horse', featureWeights: { softness: 0.4, sharpness: 0.74, brightness: 0.62, calmness: 0.72, mystique: 0.68, playfulness: 0.2 },
+  },
+  ];
