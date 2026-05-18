@@ -211,7 +211,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '말없이 중심을 지키는 얼굴',
     description: '차분하지만 약하지 않은 인상이 있습니다. 조용한 태도 안에 단단한 존재감이 느껴져요.',
     palette: ['#F0EEE9', '#B0AAA2', '#4F5355'],
-    illustrationKey: 'quiet_wolf',
+    illustrationKey: 'quiet-wolf',
     featureWeights: { softness: 0.24, sharpness: 0.74, brightness: 0.22, calmness: 0.92, mystique: 0.62, playfulness: 0.08 },
   },
   {
@@ -223,7 +223,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '안개 속에서 또렷해지는 눈빛',
     description: '고양이의 섬세함과 늑대의 단단함이 함께 보입니다. 차갑지만 매력적인 분위기가 강해요.',
     palette: ['#F3F1ED', '#B8BEC1', '#505B61'],
-    illustrationKey: 'silver_wolf_cat',
+    illustrationKey: 'silver-wolf',
     featureWeights: { softness: 0.34, sharpness: 0.84, brightness: 0.26, calmness: 0.82, mystique: 0.88, playfulness: 0.12 },
   },
   {
@@ -235,7 +235,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '차분한 푸른빛을 가진 야성',
     description: '선명하고 차가운 인상 안에 묘한 안정감이 있습니다. 쉽게 흔들리지 않는 타입처럼 보여요.',
     palette: ['#EEF5F7', '#93AFC0', '#344E5F'],
-    illustrationKey: 'blue_wolf',
+    illustrationKey: 'blue-wolf',
     featureWeights: { softness: 0.22, sharpness: 0.86, brightness: 0.42, calmness: 0.78, mystique: 0.76, playfulness: 0.1 },
   },
   {
@@ -247,7 +247,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '강하지만 차갑지 않은 얼굴',
     description: '묵직한 인상 속에 의외의 따뜻함이 있습니다. 책임감 있고 믿음직한 분위기를 줘요.',
     palette: ['#F5EFE5', '#C3A27E', '#59483C'],
-    illustrationKey: 'warm_wolf',
+    illustrationKey: 'warm-wolf',
     featureWeights: { softness: 0.46, sharpness: 0.66, brightness: 0.38, calmness: 0.86, mystique: 0.42, playfulness: 0.14 },
   },
   {
@@ -271,7 +271,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '작은 표정에도 마음이 비치는 얼굴',
     description: '섬세하고 조심스러운 분위기가 있습니다. 강하게 드러내지 않아도 은근히 기억되는 타입이에요.',
     palette: ['#FFF4F3', '#E7BFC1', '#A77D82'],
-    illustrationKey: 'shy_rabbit',
+    illustrationKey: 'shy-rabbit',
     featureWeights: { softness: 0.9, sharpness: 0.18, brightness: 0.58, calmness: 0.76, mystique: 0.28, playfulness: 0.28 },
   },
   {
@@ -295,7 +295,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '흰 눈처럼 조용히 내려앉는 인상',
     description: '밝고 깨끗한 느낌이 먼저 보입니다. 조용하지만 맑은 분위기로 기억되는 얼굴이에요.',
     palette: ['#FFFCF7', '#E5E8EA', '#AAB8BC'],
-    illustrationKey: 'snow_rabbit',
+    illustrationKey: 'snow-rabbit',
     featureWeights: { softness: 0.88, sharpness: 0.16, brightness: 0.82, calmness: 0.82, mystique: 0.38, playfulness: 0.18 },
   },
   {
@@ -307,7 +307,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '시선이 오래 머무는 투명한 분위기',
     description: '눈빛이 맑고 부드러운 인상이 강합니다. 차분하면서도 우아한 느낌을 주는 타입이에요.',
     palette: ['#F8F2E8', '#D8B88A', '#80684F'],
-    illustrationKey: 'clear_deer',
+    illustrationKey: 'clear-deer',
     featureWeights: { softness: 0.72, sharpness: 0.34, brightness: 0.76, calmness: 0.78, mystique: 0.42, playfulness: 0.18 },
   },
   {
@@ -854,7 +854,7 @@ export const animalResults: AnimalResult[] = [
     id: 'crystal-deer-fox',
     name: '유리숲 사슴여우',
     baseAnimal: '사슴여우',
-    category: 'rare-hybrid',
+    category: 'hybrid',
     moodTags: ['청초함', '신비감', '영리함'],
     tagline: '투명한 숲길에서 만난 듯한 얼굴',
     description: '맑고 신비로운 분위기 안에 날렵한 기운이 있습니다. 섬세하고 특별한 인상이에요.',
