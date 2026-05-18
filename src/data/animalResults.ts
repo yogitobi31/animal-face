@@ -31,7 +31,7 @@ export const animalResults: AnimalResult[] = [
     description:
       '선명한 인상과 절제된 분위기가 돋보입니다. 조용히 있어도 존재감이 또렷한 타입이에요.',
     palette: ['#F6EFE6', '#D8C6B4', '#7A6253'],
-    illustrationKey: 'proud_cat',
+    illustrationKey: 'proud-cat',
     featureWeights: { softness: 0.45, sharpness: 0.82, brightness: 0.38, calmness: 0.72, mystique: 0.66, playfulness: 0.32 },
   },
   {
@@ -91,7 +91,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '보는 사람까지 편안하게 만드는 얼굴',
     description: '밝고 부드러운 인상이 먼저 다가옵니다. 함께 있으면 분위기를 가볍게 풀어주는 타입이에요.',
     palette: ['#FFF6E6', '#F3C876', '#B9823E'],
-    illustrationKey: 'sunny_dog',
+    illustrationKey: 'sunlit-dog',
     featureWeights: { softness: 0.76, sharpness: 0.28, brightness: 0.92, calmness: 0.42, mystique: 0.16, playfulness: 0.74 },
   },
   {
@@ -151,7 +151,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '차갑게 빛나는 선명한 매력',
     description: '날렵한 인상과 지적인 분위기가 돋보입니다. 가볍지 않고 세련된 긴장감이 있어요.',
     palette: ['#F4F1EB', '#C7C7C2', '#5E6367'],
-    illustrationKey: 'silver_fox',
+    illustrationKey: 'silver-wolf',
     featureWeights: { softness: 0.32, sharpness: 0.88, brightness: 0.42, calmness: 0.62, mystique: 0.82, playfulness: 0.28 },
   },
   {
@@ -163,7 +163,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '설원의 고요를 닮은 선',
     description: '차분한 분위기 속에 묘한 신비감이 있습니다. 조용히 있어도 시선이 머무는 얼굴이에요.',
     palette: ['#FBFAF5', '#DDE5E8', '#A6B8C3'],
-    illustrationKey: 'snow_arctic_fox',
+    illustrationKey: 'snow-arctic-fox',
     featureWeights: { softness: 0.72, sharpness: 0.56, brightness: 0.68, calmness: 0.86, mystique: 0.84, playfulness: 0.18 },
   },
   {
@@ -187,7 +187,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '여우의 선과 고양이의 눈빛 사이',
     description: '날렵함과 고요함이 함께 있습니다. 쉽게 읽히지 않는 분위기가 매력으로 남는 타입이에요.',
     palette: ['#F5EFE7', '#B9A7B8', '#4E465A'],
-    illustrationKey: 'moon_fox_cat',
+    illustrationKey: 'moon-shadow-fox-cat',
     featureWeights: { softness: 0.44, sharpness: 0.86, brightness: 0.28, calmness: 0.78, mystique: 0.94, playfulness: 0.24 },
   },
   {
@@ -319,7 +319,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '아침 공기처럼 맑게 남는 얼굴',
     description: '은은하고 청초한 분위기가 있습니다. 조용하지만 산뜻한 인상이 오래 남아요.',
     palette: ['#F7F4EA', '#D5CFAE', '#8A8F78'],
-    illustrationKey: 'morning_deer',
+    illustrationKey: 'dawn-deer',
     featureWeights: { softness: 0.68, sharpness: 0.30, brightness: 0.78, calmness: 0.86, mystique: 0.46, playfulness: 0.12 },
   },
   {
@@ -679,7 +679,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '깊은 물빛 속의 밝은 기운',
     description: '밝지만 차분한 분위기가 함께 있습니다. 산뜻하고 맑은 인상으로 기억되는 타입이에요.',
     palette: ['#EDF8FB', '#81BFD3', '#2F6F88'],
-    illustrationKey: 'blue_dolphin',
+    illustrationKey: 'blue-dolphin',
     featureWeights: { softness: 0.58, sharpness: 0.30, brightness: 0.78, calmness: 0.66, mystique: 0.32, playfulness: 0.54 },
   },
   {

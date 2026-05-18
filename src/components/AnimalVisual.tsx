@@ -7,6 +7,8 @@ type AnimalVisualProps = {
   result?: Partial<Pick<AnimalResult, 'id' | 'name' | 'palette' | 'baseAnimal' | 'moodTags' | 'illustrationKey'>> | null;
 };
 
+type ImageLoadStatus = 'idle' | 'loaded' | 'failed';
+
 const silhouetteByAnimal: Record<string, string> = {
   고양이: 'M18 74 C28 55 40 47 53 47 C56 37 61 29 67 22 C73 30 77 37 81 47 C95 50 106 59 114 76 C101 93 82 102 64 103 C45 102 27 93 18 74 Z',
   강아지: 'M19 78 C24 58 38 50 50 50 C56 38 64 32 75 36 C80 45 84 53 88 60 C99 63 109 71 113 84 C99 98 82 104 64 104 C46 103 29 95 19 78 Z',
@@ -24,13 +26,15 @@ const hashString = (value: string) => value.split('').reduce((acc, ch, index) =>
 
 export default function AnimalVisual({ result }: AnimalVisualProps) {
   const safeResult = normalizeAnimalResult(result, 'animal-visual');
-  const [imageFailed, setImageFailed] = useState(false);
   const illustrationPath = useMemo(() => getIllustrationPath(safeResult.illustrationKey), [safeResult.illustrationKey]);
-  const shouldRenderImage = Boolean(illustrationPath) && !imageFailed;
+  const [imageLoadStatus, setImageLoadStatus] = useState<ImageLoadStatus>('idle');
+  const isPreviewMode = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('preview') === '1';
 
   useEffect(() => {
-    setImageFailed(false);
-  }, [illustrationPath, safeResult.id]);
+    setImageLoadStatus('idle');
+  }, [illustrationPath, safeResult.id, safeResult.illustrationKey]);
+
+  const shouldRenderImage = Boolean(illustrationPath) && imageLoadStatus !== 'failed';
 
   const [c1, c2, c3] = safeResult.palette;
   const hash = hashString(safeResult.illustrationKey);
@@ -41,14 +45,26 @@ export default function AnimalVisual({ result }: AnimalVisualProps) {
   const silhouettePath = silhouetteByAnimal[safeResult.baseAnimal] ?? defaultSilhouette;
   const mood = safeResult.moodTags.length ? safeResult.moodTags.join(' · ') : '분위기 분석 중';
 
+  const handleImageError = () => {
+    setImageLoadStatus('failed');
+    console.warn('[animal-illustration] failed to load image', {
+      name: safeResult.name,
+      illustrationKey: safeResult.illustrationKey,
+      imageUrl: illustrationPath,
+      loadFailed: true,
+    });
+  };
+
   return <div className={`animal-visual animal-visual-v${variant}`} style={{ '--av-c1': c1, '--av-c2': c2, '--av-c3': c3 } as CSSProperties}>
     {shouldRenderImage ? (
       <img
+        key={`${safeResult.id}-${safeResult.illustrationKey}`}
         className="result-illustration"
         src={illustrationPath ?? undefined}
         alt={`${safeResult.name} 일러스트`}
         loading="eager"
-        onError={() => setImageFailed(true)}
+        onLoad={() => setImageLoadStatus('loaded')}
+        onError={handleImageError}
       />
     ) : (
       <>
@@ -73,6 +89,13 @@ export default function AnimalVisual({ result }: AnimalVisualProps) {
         </svg>
         <div className="animal-visual-caption"><p>{safeResult.baseAnimal}</p><p>{mood}</p></div>
       </>
+    )}
+    {isPreviewMode && (
+      <div className="animal-visual-debug">
+        <p>key: {safeResult.illustrationKey}</p>
+        <p>path: {illustrationPath ?? 'none'}</p>
+        <p>status: {imageLoadStatus === 'failed' ? 'fallback' : imageLoadStatus}</p>
+      </div>
     )}
   </div>;
 }
