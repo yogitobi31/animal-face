@@ -43,7 +43,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '조용히 마음을 녹이는 작은 온기',
     description: '부드러운 인상과 차분한 눈빛이 어울립니다. 가까워질수록 더 편안한 매력이 느껴져요.',
     palette: ['#FAF1EA', '#E8CFC4', '#A47D6F'],
-    illustrationKey: 'soft_cat',
+    illustrationKey: 'soft-cat',
     featureWeights: { softness: 0.86, sharpness: 0.36, brightness: 0.52, calmness: 0.74, mystique: 0.42, playfulness: 0.48 },
   },
   {
@@ -55,7 +55,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '밤의 조용한 빛을 닮은 인상',
     description: '차분한 분위기 안에 은근한 신비감이 있습니다. 말보다 눈빛으로 기억되는 얼굴이에요.',
     palette: ['#F3EEE8', '#C9B7C8', '#5C526B'],
-    illustrationKey: 'moonlight_cat',
+    illustrationKey: 'moonlight-cat',
     featureWeights: { softness: 0.54, sharpness: 0.62, brightness: 0.34, calmness: 0.84, mystique: 0.88, playfulness: 0.22 },
   },
   {
@@ -67,7 +67,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '새침하지만 은근히 달콤한 얼굴',
     description: '밝고 부드러운 인상에 살짝 새침한 분위기가 섞여 있습니다. 귀여움과 세련됨이 함께 보여요.',
     palette: ['#FFF0E8', '#F2BDAE', '#A86F62'],
-    illustrationKey: 'peach_cat',
+    illustrationKey: 'peach-cat',
     featureWeights: { softness: 0.78, sharpness: 0.48, brightness: 0.74, calmness: 0.42, mystique: 0.34, playfulness: 0.66 },
   },
   {
@@ -79,7 +79,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '어둡지만 부드러운 벨벳 같은 존재감',
     description: '진한 분위기와 세련된 인상이 강합니다. 쉽게 드러나지 않는 매력이 오래 남는 타입이에요.',
     palette: ['#F0ECE5', '#8C7A70', '#2F2A2C'],
-    illustrationKey: 'black_velvet_cat',
+    illustrationKey: 'black-velvet-cat',
     featureWeights: { softness: 0.48, sharpness: 0.78, brightness: 0.18, calmness: 0.76, mystique: 0.92, playfulness: 0.18 },
   },
   {
@@ -103,7 +103,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '마음을 먼저 놓이게 하는 인상',
     description: '날카롭기보다 부드럽고 안정적인 분위기가 큽니다. 누구에게나 편하게 다가가는 얼굴이에요.',
     palette: ['#F8F1E7', '#E2C29B', '#8D6E52'],
-    illustrationKey: 'gentle_dog',
+    illustrationKey: 'gentle-dog',
     featureWeights: { softness: 0.88, sharpness: 0.18, brightness: 0.68, calmness: 0.66, mystique: 0.12, playfulness: 0.58 },
   },
   {
@@ -115,7 +115,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '가만히 있어도 웃음이 나는 얼굴',
     description: '밝은 기운과 장난스러운 인상이 잘 어울립니다. 사람들과 금방 가까워지는 매력이 있어요.',
     palette: ['#FFF3DC', '#F0A85F', '#7F5539'],
-    illustrationKey: 'puppy_energy',
+    illustrationKey: 'puppy-energy',
     featureWeights: { softness: 0.64, sharpness: 0.26, brightness: 0.86, calmness: 0.22, mystique: 0.1, playfulness: 0.94 },
   },
   {
@@ -127,7 +127,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '넓고 따뜻한 마음을 닮은 얼굴',
     description: '부드럽고 안정적인 인상이 강합니다. 함께 있으면 믿음이 가는 편안한 분위기를 줘요.',
     palette: ['#FFF8EC', '#E7D1A8', '#94754B'],
-    illustrationKey: 'cream_retriever',
+    illustrationKey: 'cream-retriever',
     featureWeights: { softness: 0.82, sharpness: 0.2, brightness: 0.72, calmness: 0.76, mystique: 0.14, playfulness: 0.42 },
   },
   {
@@ -139,7 +139,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '작고 환한 구름 같은 인상',
     description: '둥글고 밝은 분위기가 귀엽게 느껴집니다. 첫인상부터 부드럽고 사랑스러운 타입이에요.',
     palette: ['#FFFDF7', '#EEDDD2', '#BFA99A'],
-    illustrationKey: 'little_maltese',
+    illustrationKey: 'little-maltese',
     featureWeights: { softness: 0.94, sharpness: 0.12, brightness: 0.82, calmness: 0.44, mystique: 0.08, playfulness: 0.62 },
   },
   {
@@ -175,7 +175,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '눈에 오래 남는 붉은 기척',
     description: '선명하고 생기 있는 인상이 강합니다. 밝지만 가볍지 않고, 영리한 분위기가 함께 느껴져요.',
     palette: ['#FFF0E2', '#D9824E', '#743D2B'],
-    illustrationKey: 'red_fox',
+    illustrationKey: 'red-fox',
     featureWeights: { softness: 0.36, sharpness: 0.82, brightness: 0.72, calmness: 0.34, mystique: 0.58, playfulness: 0.62 },
   },
   {
