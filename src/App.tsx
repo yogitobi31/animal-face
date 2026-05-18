@@ -20,7 +20,7 @@ export default function App(){
       const img=new Image(); img.src=URL.createObjectURL(file); await img.decode();
       const out=await extractFaceFeatures(img)
       const vector=toEmotionVector(out.features)
-      const matched=matchAnimal(vector)
+      const matched=matchAnimal(vector, out.features)
       setResult(matched); saveCached({hash,features:out.features,result:matched}); setStage('result');
       if(out.multipleFaces) setError('여러 얼굴이 감지되어 가장 큰 얼굴 하나만 분석했어요.')
     }catch(e){

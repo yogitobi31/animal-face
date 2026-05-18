@@ -1,7 +1,13 @@
 import type { BaseFeatures, EmotionVector } from '../types/animal'
 
 const clamp=(v:number)=>Math.max(0,Math.min(100,v))
-const sigmoid=(v:number, center=50, steep=0.09)=>100/(1+Math.exp(-steep*(v-center)))
+const spread=(v:number, center=50, gain=1.15)=>clamp(center + (v-center) * gain)
+
+function devLogFeatures(base: BaseFeatures, vector: EmotionVector) {
+  if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
+    console.debug('[animal-face] feature pipeline', { baseFeatures: base, emotionVector: vector })
+  }
+}
 
 export function normalizeFeatures(f: BaseFeatures): BaseFeatures { return Object.fromEntries(Object.entries(f).map(([k,v])=>[k,clamp(v)])) as BaseFeatures }
 
@@ -24,15 +30,18 @@ export function toEmotionVector(f0: BaseFeatures): EmotionVector {
   const mystery = clamp(sharpness*0.42 + calmness*0.3 + (100-smileEnergy)*0.28)
   const warmth = clamp(softness*0.5 + brightness*0.3 + (100-f.eyeSharpness)*0.2)
 
-  return {
-    roundness: clamp(sigmoid(roundness, 50, 0.11)),
-    sharpness: clamp(sigmoid(sharpness, 52, 0.1)),
-    softness: clamp(sigmoid(softness, 49, 0.1)),
-    elegance: clamp(sigmoid(elegance, 53, 0.09)),
-    playfulness: clamp(sigmoid(playfulness, 47, 0.1)),
-    calmness: clamp(sigmoid(calmness, 50, 0.09)),
-    brightness: clamp(sigmoid(brightness, 48, 0.1)),
-    mystery: clamp(sigmoid(mystery, 52, 0.09)),
-    warmth: clamp(sigmoid(warmth, 50, 0.1)),
+  const vector: EmotionVector = {
+    roundness: spread(roundness, 50, 1.2),
+    sharpness: spread(sharpness, 52, 1.22),
+    softness: spread(softness, 49, 1.16),
+    elegance: spread(elegance, 53, 1.2),
+    playfulness: spread(playfulness, 47, 1.22),
+    calmness: spread(calmness, 50, 1.15),
+    brightness: spread(brightness, 48, 1.24),
+    mystery: spread(mystery, 52, 1.18),
+    warmth: spread(warmth, 50, 1.16),
   }
+
+  devLogFeatures(f, vector)
+  return vector
 }
