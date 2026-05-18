@@ -887,5 +887,29 @@ export const animalResults: AnimalResult[] = [
     featureWeights: { softness: 0.36, sharpness: 0.80, brightness: 0.70, calmness: 0.42, mystique: 0.86, playfulness: 0.52 },
   },
 
+  {
+    id: 'golden-lion',
+    name: '황금 사자',
+    baseAnimal: '사자',
+    category: 'rare',
+    moodTags: ['자신감', '고급스러움', '존재감', '따뜻함'],
+    tagline: '빛을 머금은 듯 당당한 존재감',
+    description: '선명하고 품위 있는 인상이 돋보입니다. 따뜻한 기운과 강한 중심이 함께 느껴지는 타입이에요.',
+    palette: ['#FFF3D7', '#D7A64A', '#6F4A24'],
+    illustrationKey: 'golden-lion',
+    featureWeights: { softness: 0.28, sharpness: 0.78, brightness: 0.86, calmness: 0.48, mystique: 0.52, playfulness: 0.18 },
+  },
+  {
+    id: 'silk-weasel',
+    name: '비단 족제비',
+    baseAnimal: '족제비',
+    category: 'rare',
+    moodTags: ['영리함', '날렵함', '세련됨', '섬세함'],
+    tagline: '부드럽게 움직이지만 눈빛은 빠른 타입',
+    description: '섬세하고 영리한 인상이 있습니다. 조용히 상황을 읽고 빠르게 반응하는 날렵한 매력이 느껴져요.',
+    palette: ['#F7EFE2', '#C6A27A', '#5F4938'],
+    illustrationKey: 'silk-weasel',
+    featureWeights: { softness: 0.42, sharpness: 0.82, brightness: 0.46, calmness: 0.54, mystique: 0.58, playfulness: 0.46 },
+  },
 
 ];
