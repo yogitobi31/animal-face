@@ -199,7 +199,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '달콤한 표정 뒤의 빠른 눈치',
     description: '밝고 부드러운 인상에 영리한 기운이 섞여 있습니다. 귀여움과 재치가 함께 느껴져요.',
     palette: ['#FFF0E8', '#F0A98D', '#9B5C4E'],
-    illustrationKey: 'peach_fox',
+    illustrationKey: 'sunset-fox',
     featureWeights: { softness: 0.64, sharpness: 0.64, brightness: 0.76, calmness: 0.34, mystique: 0.46, playfulness: 0.72 },
   },
   {
@@ -259,7 +259,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '조용히 귀여운 온도를 가진 얼굴',
     description: '둥글고 부드러운 인상이 강합니다. 부담 없이 다가가고 싶은 편안한 매력이 있어요.',
     palette: ['#FFF7F1', '#EBCBC6', '#AE8C85'],
-    illustrationKey: 'soft_rabbit',
+    illustrationKey: 'mist-rabbit',
     featureWeights: { softness: 0.94, sharpness: 0.12, brightness: 0.68, calmness: 0.64, mystique: 0.16, playfulness: 0.46 },
   },
   {
@@ -355,7 +355,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '편안하게 웃음 짓게 하는 얼굴',
     description: '둥글고 편안한 인상이 강합니다. 자연스럽고 친근한 매력이 사람을 끌어당겨요.',
     palette: ['#F6EFE5', '#C59B74', '#6E4D39'],
-    illustrationKey: 'lazy_otter',
+    illustrationKey: 'lake-otter',
     featureWeights: { softness: 0.82, sharpness: 0.20, brightness: 0.54, calmness: 0.72, mystique: 0.14, playfulness: 0.58 },
   },
   {
@@ -367,7 +367,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '잔잔한 물결처럼 자연스러운 인상',
     description: '부드럽고 유연한 분위기가 있습니다. 편안하지만 생기 있는 얼굴로 느껴져요.',
     palette: ['#EEF7F4', '#8EBBB3', '#466B65'],
-    illustrationKey: 'river_otter',
+    illustrationKey: 'lake-otter',
     featureWeights: { softness: 0.76, sharpness: 0.22, brightness: 0.66, calmness: 0.64, mystique: 0.20, playfulness: 0.68 },
   },
   {
@@ -403,7 +403,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '크고 부드러운 안정감',
     description: '편안하고 든든한 인상이 강합니다. 주변 사람에게 안정감을 주는 따뜻한 얼굴이에요.',
     palette: ['#F7EFE3', '#C39A74', '#6E4F3E'],
-    illustrationKey: 'calm_bear',
+    illustrationKey: 'forest-shadow-bear',
     featureWeights: { softness: 0.86, sharpness: 0.16, brightness: 0.42, calmness: 0.86, mystique: 0.12, playfulness: 0.28 },
   },
   {
@@ -415,7 +415,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '따뜻한 꿀색 온기를 가진 얼굴',
     description: '부드럽고 넉넉한 분위기가 있습니다. 말없이도 다정함이 전해지는 타입이에요.',
     palette: ['#FFF4DB', '#DDA85A', '#7B5731'],
-    illustrationKey: 'honey_bear',
+    illustrationKey: 'forest-shadow-bear',
     featureWeights: { softness: 0.88, sharpness: 0.12, brightness: 0.62, calmness: 0.82, mystique: 0.08, playfulness: 0.34 },
   },
   {
@@ -559,7 +559,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '고요한 물 위에 떠 있는 선',
     description: '단정하고 우아한 인상이 돋보입니다. 차분하지만 시선을 끄는 품위가 있어요.',
     palette: ['#FEFBF4', '#D8D9D0', '#9A9B90'],
-    illustrationKey: 'elegant_swan',
+    illustrationKey: 'starlight-swan',
     featureWeights: { softness: 0.66, sharpness: 0.42, brightness: 0.78, calmness: 0.86, mystique: 0.36, playfulness: 0.06 },
   },
   {
@@ -583,7 +583,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '우아함 아래 감춰진 강한 인상',
     description: '고요하지만 강렬한 분위기가 있습니다. 흔하지 않은 인상으로 오래 기억되는 타입이에요.',
     palette: ['#F1EDE9', '#81727D', '#242126'],
-    illustrationKey: 'black_swan',
+    illustrationKey: 'black-raven',
     featureWeights: { softness: 0.36, sharpness: 0.74, brightness: 0.16, calmness: 0.78, mystique: 0.94, playfulness: 0.02 },
   },
   {
@@ -595,7 +595,7 @@ export const animalResults: AnimalResult[] = [
     tagline: '움직이지 않아도 느껴지는 긴장감',
     description: '날렵하고 선명한 인상이 강합니다. 조용하지만 시선을 압도하는 분위기가 있어요.',
     palette: ['#F5EBDD', '#C29A63', '#4A3B30'],
-    illustrationKey: 'quiet_leopard',
+    illustrationKey: 'cold-leopard',
     featureWeights: { softness: 0.20, sharpness: 0.94, brightness: 0.38, calmness: 0.74, mystique: 0.58, playfulness: 0.08 },
   },
   {
