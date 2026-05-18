@@ -24,7 +24,8 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
     }
     try {
       await saveCardImage(cardContainerRef.current);
-    } catch {
+    } catch (error) {
+      console.error('[save-card-image] handleSaveImage failed', error);
       alert('저장 이미지 생성에 실패했습니다.');
     }
   };
