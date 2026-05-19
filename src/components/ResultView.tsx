@@ -41,12 +41,15 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
       <div className='info-panel'><h3>대표 동물상</h3><p>{result.mainResult.name}</p></div>
       <div className='info-panel'><h3>섞인 동물상 비율</h3><ul>{result.candidates.map((c)=><li key={c.id}>{c.name} {c.blendRatio}%</li>)}</ul></div>
       <div className='info-panel'><h3>얼굴에서 가장 닮은 포인트 3가지</h3><ul>{result.candidates[0]?.reasons?.slice(0,3).map((b)=><li key={b}>{b}</li>)}</ul></div>
+      <div className='info-panel'><h3>눈매 기준으로 가까운 동물</h3><p>{result.candidates[0]?.name}</p></div>
+      <div className='info-panel'><h3>얼굴형 기준으로 가까운 동물</h3><p>{result.candidates[1]?.name ?? result.mainResult.name}</p></div>
+      <div className='info-panel'><h3>입매/표정 기준으로 가까운 동물</h3><p>{result.candidates[2]?.name ?? result.mainResult.name}</p></div>
       <div className='info-panel'><h3>무표정일 때 보이는 동물상</h3><p>{result.candidates[1]?.name ?? result.mainResult.name}</p></div>
       <div className='info-panel'><h3>웃을 때 보이는 동물상</h3><p>{result.candidates[2]?.name ?? result.mainResult.name}</p></div>
       <div className='info-panel'><h3>사람들이 처음 볼 때 느끼는 인상</h3><p>{result.insight?.resemblanceExplanation}</p></div>
       <div className='info-panel'><h3>친해진 뒤 드러나는 반전 인상</h3><p>{result.insight?.primaryReason}</p></div>
       <div><h3 className="mb-2 text-sm font-medium text-stone-700">비슷한 후보 3개</h3><CandidateList result={result} /></div>
-      {import.meta.env.DEV && result.scoreBreakdown && <div className='info-panel'><h3>디버그 스코어</h3><pre className='text-xs overflow-auto'>{JSON.stringify({userFaceVector: result.userFaceVector, ...result.scoreBreakdown}, null, 2)}</pre></div>}
+      {import.meta.env.DEV && result.scoreBreakdown && <div className='info-panel'><h3>Accuracy Debug Panel</h3><pre className='text-xs overflow-auto'>{JSON.stringify(result.scoreBreakdown, null, 2)}</pre></div>}
 
       <div className="action-grid">
         <button onClick={onRetry} className="secondary-btn">다시 분석하기</button>

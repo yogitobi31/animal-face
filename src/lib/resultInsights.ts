@@ -36,7 +36,7 @@ export function buildResultInsight(base: BaseFeatures, vector: EmotionVector, ca
   ])
 
   const primary = selected[0]?.text ?? `${card.baseAnimal}상 특유의 분위기가 잘 살아 있어요.`
-  const confidenceLabel = score >= 84 ? '매우 높음' : score >= 72 ? '높음' : score >= 60 ? '보통 이상' : '탐색 필요'
+  const confidenceLabel = score >= 84 ? '얼굴 구조 기준으로 높은 닮음' : score >= 65 ? '구조 닮음이 확인됨' : '분위기 유사도는 있으나 얼굴 구조 닮음은 약함'
 
   return {
     primaryReason: primary,
