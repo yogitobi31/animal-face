@@ -4,6 +4,8 @@ export type FeatureKey =
   | 'playfulness' | 'elegance' | 'wildness' | 'cuteness' | 'nobility' | 'approachability' | 'mysteriousness'
 
 export type FeatureProfile = Record<FeatureKey, number>
+import type { FaceGeometryVector } from '../types/animal'
+export type GeometryProfile = Partial<Record<keyof FaceGeometryVector, number>>
 
 const p = (v: FeatureProfile) => v
 
@@ -33,6 +35,19 @@ export const coreAnimalProfiles: Record<string, FeatureProfile> = {
   meerkat: p({ roundness: 52, sharpness: 62, softness: 52, eyeSize: 58, eyeSharpness: 60, eyeDroopiness: 18, eyeUpturn: 46, faceLength: 62, faceCompactness: 50, facialSpacing: 48, mouthWarmth: 56, smileEnergy: 52, calmness: 48, playfulness: 68, elegance: 42, wildness: 40, cuteness: 60, nobility: 32, approachability: 62, mysteriousness: 44 }),
   hedgehog: p({ roundness: 66, sharpness: 54, softness: 54, eyeSize: 48, eyeSharpness: 50, eyeDroopiness: 26, eyeUpturn: 34, faceLength: 46, faceCompactness: 66, facialSpacing: 50, mouthWarmth: 48, smileEnergy: 36, calmness: 70, playfulness: 30, elegance: 34, wildness: 46, cuteness: 56, nobility: 28, approachability: 42, mysteriousness: 52 }),
   ferret: p({ roundness: 42, sharpness: 74, softness: 40, eyeSize: 46, eyeSharpness: 70, eyeDroopiness: 16, eyeUpturn: 54, faceLength: 68, faceCompactness: 42, facialSpacing: 46, mouthWarmth: 42, smileEnergy: 40, calmness: 50, playfulness: 62, elegance: 52, wildness: 54, cuteness: 36, nobility: 46, approachability: 44, mysteriousness: 64 }),
+}
+
+export const animalGeometryProfiles: Record<string, GeometryProfile> = {
+  deer: { eyeSize: 82, eyeRoundness: 68, facialSpacing: 72, jawSoftness: 74, featureContrast: 42, nosePresence: 42, visualWeight: 38, faceLength: 62, eyeFocus: 58 },
+  cat: { eyeLength: 82, eyeFocus: 84, eyeUpturn: 72, symmetryImpression: 78, mouthWarmth: 44, featureContrast: 70, facialSpacing: 46, jawSharpness: 62 },
+  puppy: { mouthWarmth: 86, smileOpenness: 78, eyeDroopiness: 66, eyeRoundness: 68, jawSoftness: 80, visualWeight: 42, faceRoundness: 66 },
+  rabbit: { faceCompactness: 84, eyeSize: 84, eyeRoundness: 82, nosePresence: 34, mouthWidth: 40, jawSoftness: 78, faceLength: 44, facialSpacing: 62 },
+  fox: { eyeLength: 84, eyeUpturn: 82, jawSharpness: 84, faceLength: 72, featureContrast: 84, mouthWidth: 54, facialSpacing: 46, eyeFocus: 76 },
+  bear: { faceRoundness: 82, jawSoftness: 76, visualWeight: 76, eyeFocus: 44, featureContrast: 42, mouthWarmth: 66, faceCompactness: 70 },
+  swan: { faceLength: 86, jawSoftness: 64, symmetryImpression: 86, nosePresence: 64, visualWeight: 44, eyeFocus: 62, featureContrast: 56 },
+  owl: { eyeFocus: 88, eyeSize: 86, symmetryImpression: 80, smileOpenness: 44, mouthWarmth: 42, facialSpacing: 56, visualWeight: 66, faceRoundness: 58 },
+  hamster: { faceRoundness: 90, faceCompactness: 88, jawSoftness: 86, eyeRoundness: 72, mouthWidth: 34, visualWeight: 30, eyeSize: 72 },
+  otter: { mouthWarmth: 82, smileOpenness: 68, eyeRoundness: 58, faceCompactness: 72, featureContrast: 44, jawSoftness: 70, visualWeight: 40 },
 }
 
 
