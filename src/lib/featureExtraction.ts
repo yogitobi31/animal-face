@@ -1,7 +1,7 @@
 import type { BaseFeatures, EmotionVector } from '../types/animal'
 
 const clamp=(v:number)=>Math.max(0,Math.min(100,v))
-const spread=(v:number, center=50, gain=1.15)=>clamp(center + (v-center) * gain)
+const spread=(v:number, center=50, gain=1.35)=>clamp(center + (v-center) * gain)
 
 function devLogFeatures(base: BaseFeatures, vector: EmotionVector) {
   if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
@@ -14,7 +14,7 @@ export function normalizeFeatures(f: BaseFeatures): BaseFeatures { return Object
 export function toEmotionVector(f0: BaseFeatures): EmotionVector {
   const f=normalizeFeatures(f0)
 
-  const faceBalance = 100 - Math.abs(f.faceLength - 52) * 1.8
+  const faceBalance = 100 - Math.abs(f.faceLength - 52) * 1.45
   const eyeSoftness = clamp(f.eyeRoundness * 0.7 + (100-f.eyeSharpness) * 0.3)
   const jawSoftness = 100 - f.jawSharpness
   const smileEnergy = clamp(f.smileHint * 0.75 + f.mouthSoftness * 0.25)
