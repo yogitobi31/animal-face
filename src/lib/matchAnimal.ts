@@ -1,6 +1,7 @@
 import { animalResults } from '../data/animalResults'
 import { normalizeAnimalResult, validateAnimalResultsDataset } from './animalResultSafety'
 import type { BaseFeatures, EmotionVector, MatchResult } from '../types/animal'
+import { buildResultInsight } from './resultInsights'
 
 const w = { softness: 1.05, sharpness: 1.2, brightness: 0.95, calmness: 1.05, mystique: 1.15, playfulness: 1 }
 
@@ -100,5 +101,7 @@ export function matchAnimal(v: EmotionVector, baseFeatures?: BaseFeatures): Matc
 
   const fallback = normalizeAnimalResult(undefined, 'fallback-animal')
   const mainResult = ranked[0] ?? { ...fallback, score: 0 }
-  return { mainResult, candidates: ranked.slice(0, 3), score: mainResult.score ?? 0, vector: v }
+  const score = mainResult.score ?? 0
+  const insight = baseFeatures ? buildResultInsight(baseFeatures, v, mainResult, score) : undefined
+  return { mainResult, candidates: ranked.slice(0, 3), score, vector: v, features: baseFeatures, insight }
 }

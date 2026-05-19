@@ -5,6 +5,7 @@ import type { MatchResult } from '../types/animal';
 import AdSlotPlaceholder from './AdSlotPlaceholder';
 import CandidateList from './CandidateList';
 import ResultCard from './ResultCard';
+import CollectibleResultCard from './CollectibleResultCard';
 
 type ResultViewProps = {
   result: MatchResult | null;
@@ -15,38 +16,35 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
   if (!result?.mainResult) {
     return <section className="result-page"><p className="text-sm text-stone-600">분석 중...</p></section>;
   }
-  const cardContainerRef = useRef<HTMLDivElement>(null);
+  const exportRef = useRef<HTMLDivElement>(null);
 
-  const handleSaveImage = async () => {
-    if (!cardContainerRef.current) {
-      console.error('[save-card-image] cardContainerRef is null');
-      return;
-    }
-    try {
-      await saveCardImage(cardContainerRef.current);
-    } catch (error) {
-      console.error('[save-card-image] handleSaveImage failed', error);
-      alert('저장 이미지 생성에 실패했습니다.');
-    }
-  };
 
   const handleShare = async () => {
     if (!navigator.share) return;
+    try { await navigator.share({ title: 'Animal Face Archive', text: result.mainResult.name, url: location.href }); } catch {}
+  };
+
+  const handleSaveImage = async () => {
+    if (!exportRef.current) return;
     try {
-      await navigator.share({
-        title: 'Animal Face Archive',
-        text: result.mainResult.name,
-        url: location.href,
-      });
-    } catch {
-      // 사용자 취소 등 공유 실패는 무시
+      await saveCardImage(exportRef.current);
+    } catch (error) {
+      console.error('[save-card-image] handleSaveImage failed', error);
+      alert('카드 저장에 실패했어요. 네트워크/이미지 로딩 상태를 확인 후 다시 시도해 주세요.');
     }
   };
 
   return (
     <section className="result-page space-y-5">
-      <div ref={cardContainerRef}>
-        <ResultCard card={result.mainResult} score={result.score} />
+      <ResultCard card={result.mainResult} score={result.score} insight={result.insight} />
+
+      <div className='info-panel'>
+        <h3>닮은 포인트</h3>
+        <ul>{result.insight?.featureBullets.map((b)=><li key={b}>{b}</li>)}</ul>
+      </div>
+      <div className='info-panel'>
+        <h3>시그니처 무드</h3>
+        <div className='chip-row'>{result.insight?.signatureTraits.map((t)=><span key={t} className='trait-chip'>{t}</span>)}</div>
       </div>
 
       <div>
@@ -55,22 +53,16 @@ export default function ResultView({ result, onRetry }: ResultViewProps) {
       </div>
 
       <div className="action-grid">
-        <button onClick={onRetry} className="secondary-btn">
-          다시 분석하기
-        </button>
-
-        <button onClick={handleSaveImage} className="primary-btn">
-          이미지 저장하기
-        </button>
-
-        <button onClick={handleShare} className="secondary-btn full-width">
-          공유하기
-        </button>
+        <button onClick={onRetry} className="secondary-btn">다시 분석하기</button>
+        <button onClick={handleSaveImage} className="primary-btn">이미지 저장하기</button>
+        <button onClick={handleShare} className="secondary-btn full-width">공유하기</button>
       </div>
 
-      <div className="pt-3 border-t border-stone-200/70 mt-2">
-        <AdSlotPlaceholder compact />
+      <div className='sr-only' aria-hidden ref={exportRef}>
+        {result.insight && <CollectibleResultCard card={result.mainResult} score={result.score} insight={result.insight} />}
       </div>
+
+      <div className="pt-3 border-t border-stone-200/70 mt-2"><AdSlotPlaceholder compact /></div>
     </section>
   );
 }
