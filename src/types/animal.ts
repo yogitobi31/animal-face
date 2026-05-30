@@ -36,5 +36,6 @@ export type FaceGeometryVector = {
   visualWeight: number;
 }
 
+export type FaceEvidence = { part: string; feature: string; text: string }
 export type BlendAnimal = AnimalResult & { score:number; blendRatio:number; reasons:string[] }
-export type MatchResult = { mainResult: AnimalResult; candidates: BlendAnimal[]; score: number; vector: EmotionVector; features?: BaseFeatures; insight?: ResultInsight; userFaceVector?: FeatureProfile; scoreBreakdown?: { top5: Array<{id:string;name:string;score:number}>; primaryReason:string; secondaryReason:string; hiddenReason:string; featureImpact: Array<{feature:keyof FeatureProfile; influence:number}>; [key: string]: unknown } }
+export type MatchResult = { mainResult: AnimalResult; candidates: BlendAnimal[]; score: number; vector: EmotionVector; features?: BaseFeatures; insight?: ResultInsight; userFaceVector?: FeatureProfile; faceEvidence?: FaceEvidence[]; similarButRejected?: Array<{label:string;score:number;reason:string}>; scoreBreakdown?: { top5: Array<{id:string;name:string;score:number}>; primaryReason:string; secondaryReason:string; hiddenReason:string; featureImpact: Array<{feature:keyof FeatureProfile; influence:number}>; [key: string]: unknown } }
