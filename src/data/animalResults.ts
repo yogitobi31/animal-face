@@ -11,6 +11,8 @@ export type AnimalResult = {
   id: string;
   name: string;
   baseAnimal: string;
+  baseAnimalLabel: string;
+  variantName: string;
   category: string;
   moodTags: string[];
   tagline: string;
@@ -20,11 +22,15 @@ export type AnimalResult = {
   featureWeights: AnimalFeatureWeights;
 };
 
-export const animalResults: AnimalResult[] = [
+const toBaseAnimalLabel = (baseAnimal: string) => (baseAnimal.endsWith('상') ? baseAnimal : `${baseAnimal}상`);
+
+const rawAnimalResults = [
   {
     id: 'proud-cat',
     name: '도도한 고양이',
     baseAnimal: '고양이',
+    baseAnimalLabel: toBaseAnimalLabel('고양이'),
+    variantName: '도도한 고양이',
     category: 'classic',
     moodTags: ['도도함', '세련됨', '차분함'],
     tagline: '다가가기 어려울수록 더 궁금해지는 얼굴',
@@ -38,6 +44,8 @@ export const animalResults: AnimalResult[] = [
     id: 'soft-cat',
     name: '말랑한 고양이',
     baseAnimal: '고양이',
+    baseAnimalLabel: toBaseAnimalLabel('고양이'),
+    variantName: '말랑한 고양이',
     category: 'classic',
     moodTags: ['부드러움', '귀여움', '조용함'],
     tagline: '조용히 마음을 녹이는 작은 온기',
@@ -977,3 +985,9 @@ export const animalResults: AnimalResult[] = [
     id: 'sapphire-horse', name: '사파이어 말', baseAnimal: '말', category: 'rare', moodTags: ['기품', '강인함', '청량함'], tagline: '푸른 보석처럼 깊고 단단한 인상', description: '날렵한 선과 안정된 무드가 균형을 이룹니다. 우아함과 강인함이 함께 느껴지는 타입이에요.', palette: ['#EDF4FF', '#8FAFD9', '#36527A'], illustrationKey: 'sapphire-horse', featureWeights: { softness: 0.4, sharpness: 0.74, brightness: 0.62, calmness: 0.72, mystique: 0.68, playfulness: 0.2 },
   },
   ];
+
+export const animalResults: AnimalResult[] = rawAnimalResults.map((item) => ({
+  ...item,
+  baseAnimalLabel: (item as Partial<AnimalResult>).baseAnimalLabel ?? toBaseAnimalLabel(item.baseAnimal),
+  variantName: (item as Partial<AnimalResult>).variantName ?? item.name,
+}));

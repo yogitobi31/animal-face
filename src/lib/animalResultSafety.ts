@@ -55,6 +55,8 @@ export function normalizeAnimalResult(input: Partial<AnimalResult> | null | unde
     id,
     name: asNonEmptyString(input?.name, '알 수 없는 동물상'),
     baseAnimal,
+    baseAnimalLabel: asNonEmptyString(input?.baseAnimalLabel, `${baseAnimal}상`),
+    variantName: asNonEmptyString(input?.variantName, asNonEmptyString(input?.name, '알 수 없는 동물상')),
     category: asNonEmptyString(input?.category, 'unknown'),
     moodTags,
     tagline: asNonEmptyString(input?.tagline, '분석 결과를 준비 중입니다.'),
